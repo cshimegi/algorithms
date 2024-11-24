@@ -1,15 +1,13 @@
-package leetcode;
-
-import java.util.HashMap;
+package leetcode.medium;
 
 /**
  * Leetcode 2516
- *
- * Link: https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/description/
- *
+ * <p>
+ * Link: <a href="https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/description/">Problem</a>
+ * <p>
  * Hint: Invert version of sliding window -> the window is not the target
  * */
-public class Medium2516 {
+public class Problem2516 {
     public static int takeCharacters(String s, int k) {
         // Count the characters
         int[] counters = new int[3];
