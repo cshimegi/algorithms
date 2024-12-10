@@ -1,7 +1,6 @@
 package leetcode.medium;
 
 
-import java.util.Arrays;
 
 /**
  * Leetcode 12
