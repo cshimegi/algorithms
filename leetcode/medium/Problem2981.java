@@ -12,7 +12,7 @@ import java.util.HashMap;
  * */
 
 public class Problem2981 {
-    public static int maximumLength(String s)  {
+    public static int maximumLength(String s) {
         HashMap<String, Integer> records = new HashMap<>();
 
         String k0 = String.valueOf(s.charAt(0));
@@ -34,7 +34,6 @@ public class Problem2981 {
         for (String k : records.keySet()) {
             int v = records.get(k);
             if (v >= 3) {
-                System.out.println(k + " " + v);
                 ans = Math.max(k.length(), ans);
             }
         }
@@ -44,6 +43,6 @@ public class Problem2981 {
     public static void main(String[] args) {
         System.out.println(maximumLength("aaaa"));
         System.out.println(maximumLength("abcdef"));
-        System.out.println(maximumLength("abcaba"));
+        System.out.println(maximumLength("cccerrrecdcdccedecdcccddeeeddcdcddedccdceeedccecde"));
     }
 }
