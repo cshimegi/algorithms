@@ -24,27 +24,30 @@ public class Problem2471 {
       }
     }
 
-    private static int indexOf(int[] arr, int value) {
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == value) {
-                return i;
-            }
-        }
-        return -1;
-    }
-
     private static int countMinSwap(int[] level) {
-        int[] temp = Arrays.copyOf(level, level.length);
+        int n = level.length;
+        int[] temp = Arrays.copyOf(level, n);
         Arrays.sort(temp);
 
+        // Map value -> index in the original array
+        Map<Integer, Integer> indexMap = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            indexMap.put(level[i], i);
+        }
+
         int ans = 0;
-        for (int i = 0; i < level.length; i++) {
+        for (int i = 0; i < n; i++) {
             if (level[i] != temp[i]) {
-                ans++;
+                int j = indexMap.get(temp[i]);
                 int tmp = level[i];
-                int j = indexOf(level, temp[i]);
                 level[i] = level[j];
                 level[j] = tmp;
+
+                // update indexMap
+                indexMap.put(level[i], i);
+                indexMap.put(level[j], j);
+
+                ans++;
             }
         }
         return ans;
@@ -106,7 +109,8 @@ public class Problem2471 {
                 if (curr.left != null) q.add(curr.left);
                 if (curr.right != null) q.add(curr.right);
             }
-            ans += optimizedCountMinSwap(level);
+//            ans += optimizedCountMinSwap(level);
+            ans += countMinSwap(level);
         }
         return ans;
     }
