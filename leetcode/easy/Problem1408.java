@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Leetcode 1408
  * <p>
- * Link: <a href="https://leetcode.com/problems/count-prefix-and-suffix-pairs-i/description/">Problem</a>
+ * Link: <a href="https://leetcode.com/problems/string-matching-in-an-array/description/">Problem</a>
  * <p>
  * Hint:
  * */
