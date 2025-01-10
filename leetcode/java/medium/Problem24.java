@@ -1,7 +1,5 @@
-package leetcode.medium;
+package leetcode.java.medium;
 
-
-import java.util.Arrays;
 
 /**
  * Leetcode 24

@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.java.medium;
 
 /**
  * Leetcode 2516

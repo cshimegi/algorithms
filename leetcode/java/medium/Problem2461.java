@@ -1,4 +1,4 @@
-package leetcode.medium;
+package leetcode.java.medium;
 
 import java.util.HashMap;
 import java.util.stream.IntStream;
