@@ -24,8 +24,8 @@ func canConstruct(s string, k int) bool {
 	return oddsCount <= k
 }
 
-// Leetcode 131
-// Link: https://leetcode.com/problems/palindrome-partitioning/description/
+// Leetcode 1400
+// Link: https://leetcode.com/problems/construct-k-palindrome-strings/description/
 func main() {
 	fmt.Println(canConstruct("annabelle", 2))
 	fmt.Println(canConstruct("leetcode", 3))
