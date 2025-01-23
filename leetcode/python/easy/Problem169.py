@@ -5,6 +5,7 @@
 # 4. How the numbers are distributed?
 class Solution:
     def majorityElement(self, nums: list[int]) -> int:
+        # Boyer-Moore Voting Algorithm
         count, majority = 1, nums[0]
         for n in nums[1:]:
             if count == 0:
