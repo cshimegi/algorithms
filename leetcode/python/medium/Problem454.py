@@ -20,6 +20,13 @@ class Solution:
                 ans += remaining1.get(target, 0)
         return ans
 
+    def fourSumCount2(nums1: list[int], nums2: list[int], nums3: list[int], nums4: list[int]) -> int:
+        from collections import Counter
+        countAB = Counter(a + b for a in nums1 for b in nums2)  # Count all sums from nums1 & nums2
+
+        return sum(countAB[-(c + d)] for c in nums3 for d in nums4)
+
+
 # Problem 454
 # Link: https://leetcode.com/problems/4sum-ii/description/
 if __name__ == '__main__':
