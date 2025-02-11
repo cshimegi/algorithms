@@ -27,7 +27,7 @@ class Solution:
             return True
 
         for course in range(numCourses):
-            if states[course] == 0 and not dfs(course):
+            if not dfs(course):
                 return []
         return ans[::-1]
 

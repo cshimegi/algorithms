@@ -9,15 +9,15 @@ class Solution:
             if nums[mid] == target:
                 if ans == -1:
                     ans = mid
+
+                if findLowest:
+                    if mid < ans:
+                        ans = mid
+                    r = mid - 1
                 else:
-                    if findLowest:
-                        if mid < ans:
-                            ans = mid
-                        r = mid - 1
-                    else:
-                        if mid > ans:
-                            ans = mid
-                        l = mid + 1
+                    if mid > ans:
+                        ans = mid
+                    l = mid + 1
             elif nums[mid] < target:
                 l = mid + 1
             else:

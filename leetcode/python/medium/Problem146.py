@@ -1,5 +1,5 @@
 # Questions to ask:
-# 1. What is the time complexity?
+# 1. What is the time complexity? O(1)
 # 2. What is the space complexity?
 class Node:
     def __init__(self, key: int, value: int):
@@ -20,7 +20,7 @@ class LRUCache:
         self.tail.prev = self.head
 
     def _remove(self, node: Node):
-        """Remove a node from the doubly linked list."""
+        """Remove a node from the double linked list."""
         prev_node = node.prev
         next_node = node.next
         prev_node.next = next_node

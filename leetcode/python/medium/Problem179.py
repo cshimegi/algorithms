@@ -18,5 +18,5 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
+    print(s.largestNumber([3,30,34,5,9]))
 

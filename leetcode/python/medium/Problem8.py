@@ -25,18 +25,15 @@ class Solution:
                     break
 
         if is_negative:
-            ans *= -1
-            if ans < MIN_INT:
-                ans = MIN_INT
+            ans = max(-ans, MIN_INT)
         else:
-            if ans > MAX_INT:
-                ans = MAX_INT
+            ans = min(ans, MAX_INT)
 
         return ans
 
 
 # Problem 8
-# Link: https://leetcode.com/problems/string-to-integer-atoi//description/
+# Link: https://leetcode.com/problems/string-to-integer-atoi/description/
 if __name__ == '__main__':
     s = Solution()
     print(s.myAtoi("4.2"))

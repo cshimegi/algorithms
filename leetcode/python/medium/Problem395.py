@@ -55,7 +55,7 @@ class Solution:
                 # Split the string by this character
                 substrings = s.split(char)
                 # Recursively find the longest valid substring
-                return max(self.longestSubstring(sub, k) for sub in substrings)
+                return max(self.longestSubstring2(sub, k) for sub in substrings)
 
         # If every character appears at least k times, return the length of the string
         return len(s)

@@ -3,14 +3,14 @@
 # 2. What is the space complexity?
 class Solution:
     def numDecodings(self, s: str) -> int:
-        if s[0] == "0":
+        if s[0] == "0": # first character == 0
             return 0
 
         l = len(s)
         dp = [0] * (l + 1)
 
-        dp[0] = 1  # 2-character
-        dp[1] = 1  # Single character, if not '0'
+        dp[0] = 1  # empty string
+        dp[1] = 1  # first character != 0
         for i in range(2, l + 1):
             # Check single-character decoding
             if s[i - 1] != "0":
@@ -31,3 +31,4 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     print(s.numDecodings("123522"))
+    print(s.numDecodings("106"))

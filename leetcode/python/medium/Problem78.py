@@ -21,7 +21,6 @@ class Solution:
 
 
     def subsets2(self, nums: list[int]) -> list[list[int]]:
-        # https://youtu.be/REOH22Xwdkk?si=c9gyE56zwbi78J72
         ans = []
         subset = []
         l = len(nums)

@@ -35,7 +35,7 @@ class Solution:
         return min(MAX_NUM, max(MIN_NUM, quotient if not negative else -quotient))
 
 # Problem 22
-# Link: https://leetcode.com/problems/generate-parentheses/description/
+# Link: https://leetcode.com/problems/divide-two-integers/description/
 if __name__ == '__main__':
     s = Solution()
     print(s.divide(10, 3))

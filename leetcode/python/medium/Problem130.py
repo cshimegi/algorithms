@@ -1,5 +1,5 @@
 # Questions to ask:
-# 1. What is the time complexity?
+# 1. What is the time complexity? O(m*n)
 # 2. What is the space complexity?
 class Solution:
     def solve(self, board: list[list[str]]) -> None:

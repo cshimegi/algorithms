@@ -11,7 +11,7 @@ class Solution:
         for i, c in enumerate(s):
             if c.isdigit():
                 num = num * 10 + int(c) # Construct multi-digit numbers
-            if c in "+-*/" or i == len(s) - 1: # Process when an operator is found or at the end
+            if c in "+-*/" or i == len(s) - 1: # Process when it's at the end
                 if sign == "+":
                     stack.append(num)
                 elif sign == "-":
@@ -40,7 +40,8 @@ class Solution:
                     num = num * 10 + int(char)  # Handle multi-digit numbers
                 if char == "(":
                     num, index = evaluate(index + 1)  # Recursively evaluate inner expression
-                if char in "+-*/)" or index == len(s) - 1:  # Process when operator or closing parenthesis is found
+                # Process it reaches the end or sign is found
+                if char in "+-*/)" or index == len(s) - 1:
                     if sign == "+":
                         stack.append(num)
                     elif sign == "-":
