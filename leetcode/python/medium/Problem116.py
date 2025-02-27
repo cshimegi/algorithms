@@ -10,6 +10,7 @@ class Node:
 
 class Solution:
     def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        # Time: O(n)/Space: O(n)
         from collections import deque
 
         curr = root
@@ -31,6 +32,7 @@ class Solution:
 
 
     def connect2(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        # Time: O(n)/Space: O(log(n))
         def dfs(node: 'Optional[Node]'):
             if not node or not node.left:
                 return
@@ -46,6 +48,7 @@ class Solution:
         return root
 
     def connect3(self, root: 'Optional[Node]') -> 'Optional[Node]':
+        # Time: O(n)/Space: O(1)
         if not root:
             return root
 

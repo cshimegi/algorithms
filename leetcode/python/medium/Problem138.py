@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(n)
 class Node:
     def __init__(self, x: int, next: 'Node' = None, random: 'Node' = None):
         self.val = int(x)

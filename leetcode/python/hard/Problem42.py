@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(1)
 class Solution:
     def trap(self, height: list[int]) -> int:
         l = len(height)

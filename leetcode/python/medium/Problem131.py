@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n*2^n)
+# 2. What is the space complexity? O(n*2^n)
 class Solution:
     def isPalindrome(self, sub_str: str) -> bool:
         return sub_str == sub_str[::-1]

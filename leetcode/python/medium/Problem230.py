@@ -10,6 +10,7 @@ class TreeNode:
 
 class Solution:
     def kthSmallest(self, root: TreeNode | None, k: int) -> int:
+        # O(n) Time | O(1) Space
         count = 0
         ans = None
 
@@ -34,6 +35,7 @@ class Solution:
         return ans
 
     def kthSmallest2(self, root: TreeNode | None, k: int) -> int:
+        # O(n) Time | O(n) Space
         stack = []
         curr = root
         count = 0

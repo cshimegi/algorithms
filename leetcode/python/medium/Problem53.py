@@ -11,7 +11,7 @@ class Solution:
             ans = max(ans, curr)
         return ans
 
-    def maxSubArray2(self, nums: list[int]) -> int:
+    def maxSubArray2(self, nums: list[int]) -> list[int]:
         # Kadane's Algorithm to return that subarray
         ans = nums[0]
         curr = nums[0]

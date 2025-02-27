@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n*log(k))
+# 2. What is the space complexity? O(k)
 import heapq
 
 class Solution:

@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n*m)
+# 2. What is the space complexity? O(m)
 class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
         # Change the question to the climbing stairs one

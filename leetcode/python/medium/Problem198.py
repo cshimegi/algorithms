@@ -20,7 +20,7 @@ class Solution:
         return self.backtrack(nums, 0, {})
 
     def rob2(self, nums: list[int]) -> int:
-        # DP
+        # DP O(n)/O(1)
         if not nums:
             return 0
 

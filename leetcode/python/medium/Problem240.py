@@ -3,6 +3,7 @@
 # 2. What is the space complexity?
 class Solution:
     def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+        # O(m*n) Time | O(1) Space
         m, n = len(matrix), len(matrix[0])
 
         def dfs(i: int, j: int):
@@ -27,6 +28,7 @@ class Solution:
         return False
 
     def searchMatrix2(self, matrix: list[list[int]], target: int) -> bool:
+        # O(m + n) Time | O(1) Space
         if not matrix or not matrix[0]:
             return False
 

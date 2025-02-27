@@ -1,5 +1,5 @@
 # Questions to ask:
-# 1. What is the time complexity?
+# 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(1) except for output array
 class Solution:
     def productExceptSelf(self, nums: list[int]) -> list[int]:

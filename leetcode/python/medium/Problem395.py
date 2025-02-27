@@ -3,6 +3,7 @@
 # 2. What is the space complexity?
 class Solution:
     def longestSubstring(self, s: str, k: int) -> int:
+        # Time: O(n) / Space: O(1)
         max_length = 0
         unique_chars = len(set(s))  # Maximum distinct chars
 
@@ -43,6 +44,7 @@ class Solution:
 
 
     def longestSubstring2(self, s: str, k: int) -> int:
+        # Time: O(n*log(n)) / Space: O(log(n))
         if not s:
             return 0
 

@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(m*n)
+# 2. What is the space complexity? O(m*n)
 class Solution:
     def numIslands(self, grid: list[list[str]]) -> int:
         m, n = len(grid), len(grid[0])

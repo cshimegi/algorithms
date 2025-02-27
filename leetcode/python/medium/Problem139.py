@@ -22,7 +22,7 @@ class Solution:
         return self.dfs(s, memo, wordMap)
 
     def wordBreak2(self, s: str, wordDict: list[str]) -> bool:
-        # DP
+        # DP Time:O(n)/Space:O(n)
         n = len(s)
         dp = [False] * (n+1)
         dp[0] = True # empty string can always be segmented
