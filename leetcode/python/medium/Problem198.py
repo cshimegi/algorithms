@@ -3,6 +3,7 @@
 # 2. What is the space complexity?
 class Solution:
     def backtrack(self, nums: list[int], start: int, memo: dict):
+        # O(n)/O(n)
         if start >= len(nums):
             return 0
 

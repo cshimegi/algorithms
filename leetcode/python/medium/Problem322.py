@@ -1,10 +1,11 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n*m)
 # 2. What is the space complexity? O(m)
+# Return the fewest number of coins that you need to make up that amount
 class Solution:
     def coinChange(self, coins: list[int], amount: int) -> int:
         # Change the question to the climbing stairs one
-        dp = [float('inf')] * (amount + 1)
+        dp = [float('inf')] * (amount + 1) # DP table for the number of coins to make up the amount
         dp[0] = 0  # Base case: 0 coins needed for amount 0
 
         for coin in coins:
