@@ -49,8 +49,6 @@ class Solution:
                     curr_tag += htmlTags[i]
                     i += 1
 
-                # TODO: Ignore content (Advanced Problem)
-
                 if not isEndTag:
                     stack.append(curr_tag)
                 elif isEndTag and curr_tag == stack[-1]:
@@ -78,7 +76,7 @@ class Solution:
                     curr_tag += htmlTags[i]
                     i += 1
 
-                # TODO: Ignore content
+                # Ignore content
                 while i < l and htmlTags[i] != "<":
                     i += 1
 
