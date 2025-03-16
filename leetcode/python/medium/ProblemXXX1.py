@@ -33,7 +33,7 @@ Time: O(n)
 Space: O(n/2) -> O(n)
 """
 class Solution:
-    def validateHtmlTags(htmlTags: str) -> str:
+    def validateHtmlTags(self, htmlTags: str) -> str:
         stack = []
         l = len(htmlTags)
         i = 0
@@ -50,6 +50,37 @@ class Solution:
                     i += 1
 
                 # TODO: Ignore content (Advanced Problem)
+
+                if not isEndTag:
+                    stack.append(curr_tag)
+                elif isEndTag and curr_tag == stack[-1]:
+                    stack.pop()
+                else:
+                    return stack[-1]
+            i += 1
+
+        return "true" if len(stack) == 0 else stack[-1]
+
+    def validateHtmlTags2(self, htmlTags: str) -> str:
+        # Advanced: for tags including content
+        stack = []
+        l = len(htmlTags)
+        i = 0
+        while i < l:
+            if htmlTags[i] == "<":
+                curr_tag = ""
+                i += 1
+                isEndTag = htmlTags[i] == "/"
+                if isEndTag:
+                    i += 1
+
+                while htmlTags[i] != ">":
+                    curr_tag += htmlTags[i]
+                    i += 1
+
+                # TODO: Ignore content
+                while i < l and htmlTags[i] != "<":
+                    i += 1
 
                 if not isEndTag:
                     stack.append(curr_tag)

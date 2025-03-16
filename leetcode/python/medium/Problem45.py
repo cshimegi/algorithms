@@ -1,6 +1,7 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(1)
+# Return the minimum number of jumps to reach nums[n - 1]
 class Solution:
     def jump(self, nums: list[int]) -> int:
         n = len(nums)
@@ -34,4 +35,4 @@ if __name__ == '__main__':
     ]
 
     for case in cases:
-        print(s.pivotArray(case[0], case[1]))
+        print(s.jump(case))

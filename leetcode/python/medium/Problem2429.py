@@ -6,7 +6,7 @@ class Solution:
         # Assume x since x XOR num1 is minimal
         x = num1
 
-        # Assuem machine is using 32 bit
+        # Assume machine is using 32 bit
         for i in range(32):
             # Remove the position of 1 in x because num1_count1 > num2_count1 and
             # it needs to be the same bit sets as num2 by decreasing the number of 1's

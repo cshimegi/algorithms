@@ -19,7 +19,7 @@ class Solution:
                 dfs(i+di, j+dj)
 
 
-        # Mark all 'O' in a region connected edge
+        # Mark all 'O' in a region connected to edge
         for i in range(m):
             if board[i][0] == "O":
                 dfs(i, 0)

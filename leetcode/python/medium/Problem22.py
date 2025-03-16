@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(2^n)
+# 2. What is the space complexity? O(2^n)
 class Solution:
     def backtrack(self, s: str, open_count: int, close_count: int, ans: list[str]) -> None:
         if open_count == 0 and close_count == 0:

@@ -36,6 +36,42 @@ class Solution:
         backtrack(0)
         return ans
 
+    def constructDistancedSequence2(self, n: int) -> list[int]:
+        # Return the smallest possible sequence
+        ans = [0] * (n * 2 - 1)
+        used = [False] * (n + 1)
+
+        def backtrack(i: int):
+            if i == n * 2 - 1:
+                return True
+
+            if ans[i] != 0:  # Skip filled positions
+                return backtrack(i + 1)
+
+            for j in range(1, n + 1):  # Iterate from smallest to largest
+                if used[j]:
+                    continue
+
+                if j == 1 or (i + j < n * 2 - 1 and ans[i + j] == 0):
+                    ans[i] = j
+                    if j > 1:
+                        ans[i + j] = j
+                    used[j] = True
+
+                    if backtrack(i + 1):
+                        return True
+
+                    # Undo choice (Backtracking)
+                    ans[i] = 0
+                    if j > 1:
+                        ans[i + j] = 0
+                    used[j] = False
+
+            return False
+
+        backtrack(0)
+        return ans
+
 
 # Problem 1718
 # Link: https://leetcode.com/problems/construct-the-lexicographically-largest-valid-sequence/description/

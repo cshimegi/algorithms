@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity? O(log n)
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
     def findPeakElement(self, nums: list[int]) -> int:
         # O(log n)

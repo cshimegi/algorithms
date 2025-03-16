@@ -21,7 +21,7 @@ class Solution:
 
     def isValidBST(self, root: TreeNode | None) -> bool:
         # Initialize with the full range of valid values
-        return is_valid(root, float('-inf'), float('inf'))
+        return self.is_valid(root, float('-inf'), float('inf'))
 
 
 # Problem 98

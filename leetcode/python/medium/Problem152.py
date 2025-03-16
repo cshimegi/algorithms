@@ -24,7 +24,7 @@ class Solution:
 
         return ans
 
-    def maxProduct2(nums: list[int]) -> list[int]:
+    def maxProduct2(self, nums: list[int]) -> list[int]:
         """
         
         :return: subarray that produces max product 

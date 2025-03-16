@@ -17,6 +17,7 @@ class Solution:
         return False
 
     def wordBreak(self, s: str, wordDict: list[str]) -> bool:
+        # DFS Time:O(n^2)/Space:O(n)
         wordMap = {w: 1 for w in wordDict}
         memo = {}
         return self.dfs(s, memo, wordMap)

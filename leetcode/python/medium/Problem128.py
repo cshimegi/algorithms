@@ -1,6 +1,6 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(n)
 class Solution:
     def longestConsecutive(self, nums: list[int]) -> int:
         if not nums:

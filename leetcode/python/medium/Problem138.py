@@ -7,8 +7,9 @@ class Node:
         self.next = next
         self.random = random
 
+from typing import Optional
 class Solution:
-    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+    def copyRandomList(self, head: Optional[Node]) -> Optional[Node]:
         if not head:
             return None
 

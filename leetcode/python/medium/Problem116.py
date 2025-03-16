@@ -8,8 +8,9 @@ class Node:
         self.right = right
         self.next = next
 
+from typing import Optional
 class Solution:
-    def connect(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect(self, root: Optional[Node]) -> Optional[Node]:
         # Time: O(n)/Space: O(n)
         from collections import deque
 
@@ -31,9 +32,9 @@ class Solution:
         return root
 
 
-    def connect2(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect2(self, root: Optional[Node]) -> Optional[Node]:
         # Time: O(n)/Space: O(log(n))
-        def dfs(node: 'Optional[Node]'):
+        def dfs(node: Optional[Node]):
             if not node or not node.left:
                 return
 
@@ -47,7 +48,7 @@ class Solution:
         dfs(root)
         return root
 
-    def connect3(self, root: 'Optional[Node]') -> 'Optional[Node]':
+    def connect3(self, root: Optional[Node]) -> Optional[Node]:
         # Time: O(n)/Space: O(1)
         if not root:
             return root

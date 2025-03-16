@@ -40,7 +40,7 @@ class Solution:
         return lists[0]
 
 
-    def mergeKLists2(lists: list[ListNode | None]) -> ListNode | None:
+    def mergeKLists2(self, lists: list[ListNode | None]) -> ListNode | None:
         # O(n * log(k))
         if not lists:
             return None
@@ -48,8 +48,8 @@ class Solution:
             return lists[0]
 
         mid = len(lists) // 2
-        left = mergeKLists2(lists[:mid])
-        right = mergeKLists2(lists[mid:])
+        left = self.mergeKLists2(lists[:mid])
+        right = self.mergeKLists2(lists[mid:])
 
         return self.merge(left, right)
 

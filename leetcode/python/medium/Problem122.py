@@ -1,8 +1,9 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(1)
+from typing import List
 class Solution:
-    def maxProfit(self, prices: list[int]) -> int:
+    def maxProfit(self, prices: List[int]) -> int:
         i, j, max_profit = 0, 1, 0
         while j < len(prices):
             # Buy at low price and sell at higher

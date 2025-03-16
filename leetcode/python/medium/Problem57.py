@@ -5,7 +5,7 @@ from typing import List
 
 class Solution:
     def insert(self, intervals: List[List[int]], newInterval: List[int]) -> List[List[int]]:
-        # O(n)/O(1)
+        # O(n)/O(n)
         ans = []
         i, n = 0, len(intervals)
 
