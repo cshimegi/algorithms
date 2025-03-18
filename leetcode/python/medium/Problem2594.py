@@ -19,7 +19,7 @@ class Solution:
         while left < right:
             mid = (left+right) // 2
             if check(mid):
-                right = mid
+                right = mid # because we want min time
             else:
                 left = mid + 1
         return left
@@ -30,9 +30,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([4, 2, 3, 1], 10),
-        ([5, 1, 8], 6),
-        ([1,1,3,3], 74)
+        ([4, 2, 3, 1], 10, 16),
+        ([5, 1, 8], 6, 16),
+        ([1,1,3,3], 74, 576)
     ]
-    for ranks, cars in cases:
-        print(s.repairCars(ranks, cars))
+    for ranks, cars, expected in cases:
+        assert s.repairCars(ranks, cars) == expected

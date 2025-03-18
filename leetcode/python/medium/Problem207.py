@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(numCourses + len(prerequisites))
+# 2. What is the space complexity? O(numCourses + len(prerequisites))
+from typing import List
+
 class Solution:
-    def canFinish(self, numCourses: int, prerequisites: list[list[int]]) -> bool:
+    def canFinish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         graph = {i: [] for i in range(numCourses)}
         for second, first in prerequisites:
             graph[first].append(second)
@@ -16,7 +18,6 @@ class Solution:
                 return True
             # Mark as visiting
             states[course] = 1
-
             for neighbor in graph[course]:
                 if not dfs(neighbor):
                     return False
@@ -36,7 +37,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.canFinish(2, [[1,0]]))
-    print(s.canFinish(2, [[1,0], [0,1]]))
-    print(s.canFinish(3, [[1,0],[2,1],[0,2]]))
-    print(s.canFinish(5, [[1,4],[2,4],[3,1],[3,2]]))
+    cases = [
+        (2, [[1,0]], True),
+        (2, [[1,0], [0,1]], False),
+        (3, [[1,0],[2,1],[0,2]], False),
+        (5, [[1,4],[2,4],[3,1],[3,2]], True),
+    ]
+    for numCourses, prerequisites, expected in cases:
+        assert s.canFinish(numCourses, prerequisites) == expected

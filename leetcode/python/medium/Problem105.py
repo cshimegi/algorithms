@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(n)
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -11,14 +13,14 @@ class TreeNode:
 # In-order: left -> root -> right
 # Post-order: left -> right -> root
 class Solution:
-    def buildTree(self, preorder: list[int], inorder: list[int]) -> TreeNode | None:
+    def buildTree(self, preorder: List[int], inorder: List[int]) -> TreeNode | None:
         if not preorder or not inorder:
             return None
 
         # Precompute indices of inorder values
         inorder_index_map = {val: idx for idx, val in enumerate(inorder)}
 
-        def build(preorder: list[int], inorder_start: int, inorder_end: int) -> TreeNode | None:
+        def build(preorder: List[int], inorder_start: int, inorder_end: int) -> TreeNode | None:
             if inorder_start > inorder_end:
                 return None
 
@@ -39,14 +41,14 @@ class Solution:
 
 
     # Further practice for building a tree from postorder and inorder
-    def buildTree2(self, postorder: list[int], inorder: list[int]) -> TreeNode | None:
+    def buildTree2(self, postorder: List[int], inorder: List[int]) -> TreeNode | None:
         if not postorder or not inorder:
             return None
 
         # Precompute indices of inorder values
         inorder_index_map = {val: idx for idx, val in enumerate(inorder)}
 
-        def build(postorder: list[int], inorder_start: int, inorder_end: int) -> TreeNode | None:
+        def build(postorder: List[int], inorder_start: int, inorder_end: int) -> TreeNode | None:
             if inorder_start > inorder_end:
                 return None
 
@@ -58,8 +60,8 @@ class Solution:
             inorder_index = inorder_index_map[root_val]
 
             # Recursively build the right and left subtrees
-            root.right = build(postorder, inorder_index + 1, inorder_end)
             root.left = build(postorder, inorder_start, inorder_index - 1)
+            root.right = build(postorder, inorder_index + 1, inorder_end)
 
             return root
 

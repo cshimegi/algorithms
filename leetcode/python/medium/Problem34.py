@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(log n)
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def binarySearch(self, nums: list[int], target: int, findLowest: bool) -> int:
+    def binarySearch(self, nums: List[int], target: int, find_lowest: bool) -> int:
         l, r, ans = 0, len(nums)-1, -1
         while  l <= r:
             mid = (r+l)//2
@@ -10,7 +12,7 @@ class Solution:
                 if ans == -1:
                     ans = mid
 
-                if findLowest:
+                if find_lowest:
                     if mid < ans:
                         ans = mid
                     r = mid - 1
@@ -25,7 +27,7 @@ class Solution:
         return ans
 
 
-    def searchRange(self, nums: list[int], target: int) -> list[int]:
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
         l = self.binarySearch(nums, target, True)
         r = self.binarySearch(nums, target, False)
         return [l, r]
@@ -35,6 +37,10 @@ class Solution:
 # Link: https://leetcode.com/problems/find-first-and-last-position-of-element-in-sorted-array/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.searchRange(nums = [5,8,8,8,8,10], target = 8))
-    print(s.searchRange(nums = [5,7,7,8,8,10], target = 6))
-    print(s.searchRange(nums = [8,8,8,8,8,8], target = 8))
+    cases = [
+        ([5,8,8,8,8,10], 8, [1,4]),
+        ([5,7,7,8,8,10], 6, [-1,-1]),
+        ([8,8,8,8,8,8], 8, [0,5])
+    ]
+    for nums, target, expected in cases:
+        assert s.searchRange(nums, target) == expected

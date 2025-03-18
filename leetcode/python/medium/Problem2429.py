@@ -1,3 +1,6 @@
+# Questions to ask:
+# 1. What is the time complexity?
+# 2. What is the space complexity?
 class Solution:
     def minimizeXor(self, num1: int, num2: int) -> int:
         # Count the number of 1's in num1 and num2

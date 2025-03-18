@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
     def dfs(self, s: str, memo: dict, wordMap: dict) -> bool:
         if s in memo:
@@ -16,13 +18,13 @@ class Solution:
         memo[s] = False
         return False
 
-    def wordBreak(self, s: str, wordDict: list[str]) -> bool:
+    def wordBreak(self, s: str, wordDict: List[str]) -> bool:
         # DFS Time:O(n^2)/Space:O(n)
         wordMap = {w: 1 for w in wordDict}
         memo = {}
         return self.dfs(s, memo, wordMap)
 
-    def wordBreak2(self, s: str, wordDict: list[str]) -> bool:
+    def wordBreak2(self, s: str, wordDict: List[str]) -> bool:
         # DP Time:O(n)/Space:O(n)
         n = len(s)
         dp = [False] * (n+1)
@@ -43,4 +45,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
+    cases = [
+        ("leetcode", ["leet", "code"], True),
+        ("applepenapple", ["apple", "pen"], True),
+        ("catsandog", ["cats", "dog", "sand", "and", "cat"], False),
+    ]
+    for string, wordDict, expected in cases:
+        assert s.wordBreak(string, wordDict) == expected
+        assert s.wordBreak2(string, wordDict) == expected

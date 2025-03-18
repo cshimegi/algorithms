@@ -26,7 +26,6 @@ class Solution:
 
         return head
 
-
 # Problem 328
 # Link: https://leetcode.com/problems/odd-even-linked-list/description/
 # Tips:

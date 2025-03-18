@@ -1,15 +1,17 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n*2^n)
 # 2. What is the space complexity? O(n*2^n)
+from typing import List
+
 class Solution:
     def isPalindrome(self, sub_str: str) -> bool:
         return sub_str == sub_str[::-1]
 
-    def partition(self, s: str) -> list[list[str]]:
+    def partition(self, s: str) -> List[List[str]]:
         ans = []
         l = len(s)
 
-        def backtrack(start: int, path: list[str]):
+        def backtrack(start: int, path: List[str]):
             # If we have reached the end of the string, add the current partition to the result
             if start == l:
                 ans.append(path[:])
@@ -33,3 +35,9 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        ("a", [["a"]]),
+        ("aab", [["a", "a", "b"], ["aa", "b"]]),
+    ]
+    for string, expected in cases:
+        assert s.partition(string) == expected

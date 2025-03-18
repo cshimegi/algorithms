@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(n)
 class Solution:
     def numberOfSubstrings(self, s: str) -> int:
         from collections import defaultdict
@@ -29,10 +29,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        "abcabc",
-        "aaacb",
-        "abc"
+        ("abcabc", 10),
+        ("aaacb", 3),
+        ("abc", 1),
     ]
-
-    for case in cases:
-        print(s.numberOfSubstrings(case))
+    for string, expected in cases:
+        assert s.numberOfSubstrings(string) == expected

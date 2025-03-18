@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(log(n))
+# 2. What is the space complexity? O(1)
 from typing import List
 
 class Solution:
@@ -32,8 +32,8 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([2, 5, 6, 0, 0, 1, 2], 0),
-        ([2, 5, 6, 0, 0, 1, 2], 3)
+        ([2, 5, 6, 0, 0, 1, 2], 0, True),
+        ([2, 5, 6, 0, 0, 1, 2], 3, False)
     ]
-    for nums, target in cases:
-        print(s.search(nums, target))
+    for nums, target, expected in cases:
+        assert s.search(nums, target) == expected

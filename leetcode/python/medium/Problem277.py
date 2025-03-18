@@ -28,13 +28,13 @@ class Solution:
 
         return candidate
 
-
 # Problem 277
 # Link: https://leetcode.com/problems/find-the-celebrity/description/
 # https://memorylimitexceeded.gitlab.io/leetcode/problems/0277-find-the-celebrity.html
 if __name__ == '__main__':
     s = Solution()
-    cases = [4,7,5]
-    for case in cases:
-        print(s.fourCelebrity(case))
-
+    cases = [
+        ([4,7,5], 5),
+    ]
+    for nums, expected in cases:
+        assert s.fourCelebrity(nums) == expected

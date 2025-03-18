@@ -7,7 +7,6 @@ class TreeNode:
         self.left = left
         self.right = right
 
-
 class Solution:
     def kthSmallest(self, root: TreeNode | None, k: int) -> int:
         # O(n) Time | O(1) Space
@@ -54,7 +53,6 @@ class Solution:
 
             # Move to the right subtree
             curr = curr.right
-
 
 # Problem 230
 # Link: https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/

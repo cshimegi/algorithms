@@ -24,8 +24,6 @@ class Solution:
                 if char_count[s[right]] == k:
                     at_least_k += 1
 
-                right += 1
-
                 # Shrink window when unique characters exceed target
                 while unique > target_unique:
                     if char_count[s[left]] == k:
@@ -38,10 +36,11 @@ class Solution:
 
                 # If all unique chars meet the k condition, update max_length
                 if unique == at_least_k:
-                    max_length = max(max_length, right - left)
+                    max_length = max(max_length, right - left + 1)
+
+                right += 1
 
         return max_length
-
 
     def longestSubstring2(self, s: str, k: int) -> int:
         # Time: O(n*log(n)) / Space: O(log(n))
@@ -68,6 +67,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.longestSubstring("abababacab", 5))
-    print(s.longestSubstring("aaaaaabbbb", 5))
-    print(s.longestSubstring("ababbc", 2))
+    cases = [
+        ("abababacab", 5, 0),
+        ("aaaaaabbbb", 5, 6),
+        ("ababbc", 2, 5),
+    ]
+    for string, k, expected in cases:
+        assert s.longestSubstring(string, k) == expected
+        assert s.longestSubstring2(string, k) == expected

@@ -34,4 +34,4 @@ class FindElements:
 # Problem 1261
 # Link: https://leetcode.com/problems/find-elements-in-a-contaminated-binary-tree/description/
 if __name__ == '__main__':
-    s = Solution()
+    f = FindElements(TreeNode(0))

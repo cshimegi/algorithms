@@ -43,8 +43,8 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        (10, 19),
-        (4, 6),
+        (10, 19, [11, 13]),
+        (4, 6, [-1, -1]),
     ]
-    for left, right in cases:
-        print(s.closestPrimes(left, right))
+    for left, right, expected in cases:
+        assert s.closestPrimes(left, right) == expected

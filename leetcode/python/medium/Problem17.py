@@ -1,6 +1,6 @@
 # Questions to ask:
 # 1. What is the time complexity? O(3^x*4^y)
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(3^x*4^y)
 class Solution:
     def letterCombinations(self, digits: str) -> list[str]:
         dl = {
@@ -54,5 +54,9 @@ class Solution:
 # Link: https://leetcode.com/problems/letter-combinations-of-a-phone-number/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.letterCombinations("23"))
-    print(s.letterCombinations2("23"))
+    cases = [
+        ("23", ["ad", "ae", "af", "bd", "be", "bf", "cd", "ce", "cf"]),
+    ]
+    for digits, expected in cases:
+        assert s.letterCombinations(digits) == expected
+        assert s.letterCombinations2(digits) == expected

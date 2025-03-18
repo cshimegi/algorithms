@@ -33,13 +33,12 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([5, 8, 6], 3),
-        ([2, 5], 11),
-        ([5, 8, 6, 8], 3),
-        ([5, 8, 6, 8], 4),
-        ([5, 8, 6, 8], 5),
-        ([5, 8, 20], 3)
+        ([5, 8, 6], 3, 5),
+        ([2, 5], 11, 0),
+        ([5, 8, 6, 8], 3, 6),
+        ([5, 8, 6, 8], 4, 5),
+        ([5, 8, 6, 8], 5, 4),
+        ([5, 8, 20], 3, 8)
     ]
-    for candies, k in cases:
-        print(s.maximumCandies(candies, k))
-
+    for candies, k, expected in cases:
+        assert s.maximumCandies(candies, k) == expected

@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(1)
+from typing import List
+
 class Solution:
-    def maxProduct(self, nums: list[int]) -> int:
+    def maxProduct(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
@@ -24,7 +26,7 @@ class Solution:
 
         return ans
 
-    def maxProduct2(self, nums: list[int]) -> list[int]:
+    def maxProduct2(self, nums: List[int]) -> List[int]:
         """
         
         :return: subarray that produces max product 
@@ -63,5 +65,10 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.maxProduct([-2,0,-1]))
-
+    cases = [
+        ([-2,0,-1], 0),
+        ([2,3,-2,4], 6),
+    ]
+    for nums, expected in cases:
+        assert s.maxProduct(nums) == expected
+        print(s.maxProduct2(nums))

@@ -65,6 +65,6 @@ class MinStack2:
 # Link: https://leetcode.com/problems/min-stack/description/
 # Tips:
 if __name__ == '__main__':
-    s = Solution()
+    s = MinStack()
 
 

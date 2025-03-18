@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(log(n))
+# 2. What is the space complexity? O(1)
 from typing import List
 
 class Solution:
@@ -9,7 +9,6 @@ class Solution:
 
         while l < r:
             mid = (l + r) // 2
-
             if nums[mid] > nums[r]:
                 l = mid + 1
             else:
@@ -28,5 +27,4 @@ if __name__ == '__main__':
         ([11,13,15,17], 11)
     ]
     for nums, expected in cases:
-        print(s.findMin(nums) == expected)
-
+        assert s.findMin(nums) == expected

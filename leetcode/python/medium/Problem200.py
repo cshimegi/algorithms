@@ -10,7 +10,6 @@ class Solution:
                 return
 
             grid[i][j] = "#"
-
             for di, dj in [(1,0), (-1,0), (0,1), (0,-1)]:
                 dfs(i+di, j+dj)
 
@@ -28,3 +27,25 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        (
+            [
+                ["1", "1", "1", "1", "0"],
+                ["1", "1", "0", "1", "0"],
+                ["1", "1", "0", "0", "0"],
+                ["0", "0", "0", "0", "0"]
+            ],
+            1
+        ),
+        (
+            [
+                ["1", "1", "0", "0", "0"],
+                ["1", "1", "0", "0", "0"],
+                ["0", "0", "1", "0", "0"],
+                ["0", "0", "0", "1", "1"]
+            ],
+            3
+        )
+    ]
+    for grid, expected in cases:
+        assert s.numIslands(grid) == expected

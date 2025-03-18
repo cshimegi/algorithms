@@ -39,7 +39,7 @@ class Solution:
             for i in range(l):
                 if used[i]:
                     continue
-
+                # Avoid duplicate
                 if i > 0 and nums[i] == nums[i-1] and not used[i-1]:
                     continue
 
@@ -58,10 +58,10 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        [1, 1, 2],
-        [1, 2, 3],
-        [3, 3, 0, 3],
+        ([1, 1, 2], [[1, 1, 2], [1, 2, 1], [2, 1, 1]]),
+        ([1, 2, 3], [[1, 2, 3], [1, 3, 2], [2, 1, 3], [2, 3, 1], [3, 1, 2], [3, 2, 1]]),
+        ([3, 3, 0, 3], [[0, 3, 3, 3], [3, 0, 3, 3], [3, 3, 0, 3], [3, 3, 3, 0]]),
     ]
-    for case in cases:
-        print(s.permuteUnique(case))
-
+    for nums, expected in cases:
+        assert s.permuteUnique(nums) == expected
+        assert s.permuteUnique2(nums) == expected

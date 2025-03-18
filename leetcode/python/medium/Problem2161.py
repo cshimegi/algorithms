@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(n)
+from typing import List
+
 class Solution:
-    def pivotArray(self, nums: list[int], pivot: int) -> list[int]:
+    def pivotArray(self, nums: List[int], pivot: int) -> List[int]:
         smaller, equal, greater = [], [], []
         for num in nums:
             if num < pivot:
@@ -19,9 +21,8 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([9,12,5,10,14,3,10], 10),
-        ([2,3,5,8,4], 3)
+        ([9,12,5,10,14,3,10], 10, [9, 5, 3, 10, 10, 12, 14]),
+        ([2,3,5,8,4], 3, [2, 3, 5, 8, 4]),
     ]
-
-    for case in cases:
-        print(s.pivotArray(case[0], case[1]))
+    for nums, pivot, expected in cases:
+        assert s.pivotArray(nums, pivot) == expected

@@ -21,5 +21,12 @@ class Solution:
 # Link: https://leetcode.com/problems/reverse-integer/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.reverse(123))
-    print(s.reverse(-123))
+
+    cases = [
+        (123, 321),
+        (-123, -321),
+        (120, 21),
+        (0, 0)
+    ]
+    for x, expected in cases:
+        assert s.reverse(x) == expected

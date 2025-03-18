@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(1)
 class Solution:
     def longestPalindrome(self, s: str) -> str:
         l = len(s)
@@ -38,6 +38,11 @@ class Solution:
 # Link: https://leetcode.com/problems/longest-palindromic-substring/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.longestPalindrome2("babad"))
-    print(s.longestPalindrome2("cbbd"))
-    print(s.longestPalindrome2("aaaaaaaaa"))
+    cases = [
+        ("babad", "bab"),
+        ("cbbd", "bb"),
+        ("aaaaaaaaa", "aaaaaaaaa")
+    ]
+    for string, expected in cases:
+        assert s.longestPalindrome(string) == expected
+        assert s.longestPalindrome2(string) == expected

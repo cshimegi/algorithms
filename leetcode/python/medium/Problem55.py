@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def backtrack(self, nums: list[int], curr: int, last: int):
+    def backtrack(self, nums: List[int], curr: int, last: int):
         # O(2^n) ---> time limit exceeded
         if curr == last:
             return True
@@ -15,9 +17,8 @@ class Solution:
         return isOk
 
 
-    def canJump(self, nums: list[int]) -> bool:
+    def canJump(self, nums: List[int]) -> bool:
         # Greedy algorithm: Only need to check how far we can reach when standing at the current index
-
         l, farthest = len(nums), 0
         for i in range(l):
             # If the current index is not reachable, return False
@@ -36,3 +37,10 @@ class Solution:
 # Link: https://leetcode.com/problems/jump-game/description/
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        ([2,3,1,1,4], True),
+        ([3,2,1,0,4], False)
+    ]
+
+    for nums, expected in cases:
+        assert s.canJump(nums) == expected

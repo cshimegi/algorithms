@@ -81,11 +81,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        (5, [1, 2, 5]),
-        (3, [2]),
-        (10, [10])
+        (5, [1, 2, 5], 4),
+        (3, [2], 0),
+        (10, [10], 1),
     ]
-
-    for amount, coins in cases:
-        print(s.change(amount, coins))
-
+    for amount, coins, expected in cases:
+        assert s.change(amount, coins) == expected

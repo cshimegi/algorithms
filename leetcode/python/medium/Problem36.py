@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(1) because only 81 cells
+# 2. What is the space complexity? O(1) because only 81 cells
 class Solution:
     def isValidSudoku(self, board: list[list[str]]) -> bool:
         cols = [{str(i+1): False for i in range(9)} for _ in range(9)]
@@ -24,14 +24,21 @@ class Solution:
 # Link: https://leetcode.com/problems/valid-sudoku/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.isValidSudoku(board = [
-        ["5","3",".",".","7",".",".",".","."],
-        ["6",".",".","1","9","5",".",".","."],
-        [".","9","8",".",".",".",".","6","."],
-        ["8",".",".",".","6",".",".",".","3"],
-        ["4",".",".","8",".","3",".",".","1"],
-        ["7",".",".",".","2",".",".",".","6"],
-        [".","6",".",".",".",".","2","8","."],
-        [".",".",".","4","1","9",".",".","5"],
-        [".",".",".",".","8",".",".","7","9"]
-    ]))
+    cases = [
+        (
+            [
+                ["5", "3", ".", ".", "7", ".", ".", ".", "."],
+                ["6", ".", ".", "1", "9", "5", ".", ".", "."],
+                [".", "9", "8", ".", ".", ".", ".", "6", "."],
+                ["8", ".", ".", ".", "6", ".", ".", ".", "3"],
+                ["4", ".", ".", "8", ".", "3", ".", ".", "1"],
+                ["7", ".", ".", ".", "2", ".", ".", ".", "6"],
+                [".", "6", ".", ".", ".", ".", "2", "8", "."],
+                [".", ".", ".", "4", "1", "9", ".", ".", "5"],
+                [".", ".", ".", ".", "8", ".", ".", "7", "9"]
+            ],
+            True
+        )
+    ]
+    for board, expected in cases:
+        assert s.isValidSudoku(board) == expected

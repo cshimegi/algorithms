@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity? O(1)
 # 2. What is the space complexity?
+import random
+
 class RandomizedSet:
     def __init__(self):
         self.num_to_idx = {}  # Stores value → index mapping

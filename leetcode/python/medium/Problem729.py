@@ -20,8 +20,6 @@ class MyCalendar:
         bisect.insort_left(self.calendar, (startTime, endTime)) # O(log*(n))
         return True
 
-
-
 # Problem 937
 # Link: https://leetcode.com/problems/my-calendar-i/description/
 if __name__ == '__main__':
@@ -39,4 +37,4 @@ if __name__ == '__main__':
         ([18, 27], False)
     ]
     for book, expected in books:
-        print(mc.book(book[0], book[1]) == expected)
+        assert mc.book(book[0], book[1]) == expected

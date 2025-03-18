@@ -3,6 +3,7 @@
 # 2. What is the space complexity?
 class Solution:
     def calculate(self, s: str) -> int:
+        # Tims: O(n)/Space: O(n)
         s = s.replace(" ", "")  # Remove spaces
         stack = []
         num = 0
@@ -35,7 +36,6 @@ class Solution:
 
             while index < len(s):
                 char = s[index]
-
                 if char.isdigit():
                     num = num * 10 + int(char)  # Handle multi-digit numbers
                 if char == "(":
@@ -53,7 +53,6 @@ class Solution:
 
                     num = 0  # Reset for next number
                     sign = char  # Store current operator
-
                     if char == ")":  # End of subexpression
                         return sum(stack), index
                 index += 1  # Move to next character
@@ -62,11 +61,19 @@ class Solution:
 
         return evaluate(0)[0]  # Start from index 0 and return result
 
-
 # Problem 227
 # Link: https://leetcode.com/problems/basic-calculator-ii/description/
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.calculate2("2*(3+4)-5"))
-    print(s.calculate2("2*(3+4*(2+9))-5"))
+    cases = [
+        ("3+2*2", 7),
+        (" 3/2 ", 1),
+        (" 3+5 / 2 ", 5),
+    ]
+    for string, expected in cases:
+        assert s.calculate(string) == expected
+
+    # For advanced implementation
+    print(s.calculate2("2*(3+4)-5") == 9)
+    print(s.calculate2("2*(3+4*(2+9))-5") == 89)

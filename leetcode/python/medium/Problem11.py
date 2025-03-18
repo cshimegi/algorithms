@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(1)
 class Solution:
     def maxArea(self, height: list[int]) -> int:
         l, r, ans = 0, len(height)-1, 0
@@ -17,4 +17,8 @@ class Solution:
 # Link: https://leetcode.com/problems/container-with-most-water/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.maxArea(height = [1,8,6,2,5,4,8,3,7]))
+    cases = [
+        ([1,8,6,2,5,4,8,3,7], 49)
+    ]
+    for height, expected in cases:
+        print(s.maxArea(height) == expected)

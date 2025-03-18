@@ -33,7 +33,7 @@ class Solution:
 
 
     def connect2(self, root: Optional[Node]) -> Optional[Node]:
-        # Time: O(n)/Space: O(log(n))
+        # Time: O(n)/Space: O(log(n)): due to recursive call stack
         def dfs(node: Optional[Node]):
             if not node or not node.left:
                 return

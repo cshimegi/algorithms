@@ -45,17 +45,17 @@ class Solution:
 
         return dp[-1][-1]
 
-
 # Problem 63
 # Link: https://leetcode.com/problems/unique-paths-ii/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        [[0,0,0],[0,1,0],[0,0,0]],
-        [[0,1],[0,0]],
-        [[0], [0]],
-        [[1,0], [0,0]],
-        [[0,0,0], [1,1,1], [0,0,0]]
+        ([[0,0,0],[0,1,0],[0,0,0]], 2),
+        ([[0,1],[0,0]], 1),
+        ([[0], [0]], 1),
+        ([[1,0], [0,0]], 0),
+        ([[0,0,0], [1,1,1], [0,0,0]], 0)
     ]
-    for case in cases:
-        print(s.uniquePathsWithObstacles(case))
+    for obstacleGrid, expected in cases:
+        assert s.uniquePathsWithObstacles(obstacleGrid) == expected
+        assert s.uniquePathsWithObstacles2(obstacleGrid) == expected

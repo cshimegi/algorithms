@@ -82,13 +82,12 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ("aeioqq", 1),
-        ("aeiou", 0),
-        ("aeiou", 0),
-        ("ieaouqqieaouqq", 1),
-        ("ieplfcaoduqqiewaouqq", 2),
-        ("iqeaouqi", 2),
+        ("aeioqq", 1, 0),
+        ("aeiou", 0, 1),
+        ("aeiou", 0, 1),
+        ("ieaouqqieaouqq", 1, 3),
+        ("ieplfcaoduqqiewaouqq", 2, 2),
+        ("iqeaouqi", 2, 3),
     ]
-    for words, k in cases:
-        print(s.countOfSubstrings(words, k))
-
+    for words, k, expected in cases:
+        assert s.countOfSubstrings(words, k) == expected

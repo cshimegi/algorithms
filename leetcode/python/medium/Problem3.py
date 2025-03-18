@@ -39,10 +39,15 @@ class Solution:
 # Link: https://leetcode.com/problems/longest-substring-without-repeating-characters/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.lengthOfLongestSubstring(s = "abcabcbb"))
-    print(s.lengthOfLongestSubstring(s = "bbbbb"))
-    print(s.lengthOfLongestSubstring(s = "pwwkew"))
-    print(s.lengthOfLongestSubstring(s = "tmmzuxt"))
-    print(s.lengthOfLongestSubstring(s = " "))
-    print(s.lengthOfLongestSubstring(s = "ckilbkd"))
-    print(s.lengthOfLongestSubstring(s = "$# $"))
+    cases = [
+        ("abcabcbb", 3),
+        ("bbbbb", 1),
+        ("pwwkew", 3),
+        ("tmmzuxt", 5),
+        (" ", 1),
+        ("ckilbkd", 5),
+        ("$# $", 2),
+    ]
+
+    for string, expected in cases:
+        assert s.lengthOfLongestSubstring(string) == expected

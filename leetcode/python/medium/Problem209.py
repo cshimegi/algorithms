@@ -45,17 +45,17 @@ class Solution:
         else:
             return l
 
-
 # Problem 209
 # Link: https://leetcode.com/problems/minimum-size-subarray-sum/description/
 # Tips:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        (7, [2, 3, 1, 2, 4, 3]),
-        (4, [1, 4, 4]),
-        (11, [1, 1, 1, 1, 1, 1, 1, 1])
+        (7, [2, 3, 1, 2, 4, 3], 2),
+        (4, [1, 4, 4], 1),
+        (11, [1, 1, 1, 1, 1, 1, 1, 1], 0)
     ]
-    for target, nums in cases:
-        print(s.minSubArrayLen(target, nums))
+    for target, nums, expected in cases:
+        assert s.minSubArrayLen(target, nums) == expected
+        assert s.minSubArrayLen2(target, nums) == expected
 

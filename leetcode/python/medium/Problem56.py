@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(n)
+from typing import List
+
 class Solution:
-    def merge(self, intervals: list[list[int]]) -> list[list[int]]:
+    def merge(self, intervals: List[List[int]]) -> List[List[int]]:
         l = len(intervals)
         if l == 1:
             return intervals
@@ -23,7 +25,7 @@ class Solution:
             i += 1
         return ans
 
-    def merge2(self, intervals: list[list[int]]) -> list[list[int]]:
+    def merge2(self, intervals: List[List[int]]) -> List[List[int]]:
         if len(intervals) <= 1:
             return intervals
 
@@ -46,4 +48,8 @@ class Solution:
 # Link: https://leetcode.com/problems/merge-intervals/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.merge([[1,3],[8,10],[2,6],[15,18]]))
+    cases = [
+        ([[1,3],[2,6],[8,10],[15,18]], [[1,6],[8,10],[15,18]]),
+    ]
+    for intervals, expected in cases:
+        assert s.merge(intervals) == expected

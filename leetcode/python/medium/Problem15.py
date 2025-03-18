@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n^2)
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def threeSum(self, nums: list[int]) -> list[list[int]]:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
         nums.sort()
         ans = []
         l = len(nums)
@@ -35,4 +37,8 @@ class Solution:
 # Link: https://leetcode.com/problems/3sum/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.threeSum(nums = [-1,0,1,2,-1,-4]))
+    cases = [
+        ([-1,0,1,2,-1,-4], [[-1,-1,2], [-1,0,1]]),
+    ]
+    for nums, expected in cases:
+        assert s.threeSum(nums) == expected

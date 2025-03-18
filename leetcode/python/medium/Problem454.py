@@ -1,9 +1,11 @@
 class Solution:
     # Questions to ask:
-    # 1. What is the time complexity?
-    # 2. What is the space complexity?
+    # 1. What is the time complexity? O(n^2)
+    # 2. What is the space complexity? O(n^2)
     # 3. Are (-1,1,1,-1) and (1,1,-1,-1) same?
-    def fourSumCount(self, nums1: list[int], nums2: list[int], nums3: list[int], nums4: list[int]) -> int:
+    from typing import List
+    
+    def fourSumCount(self, nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
         l = len(nums1)
 
         remaining1 = {}
@@ -20,7 +22,7 @@ class Solution:
                 ans += remaining1.get(target, 0)
         return ans
 
-    def fourSumCount2(nums1: list[int], nums2: list[int], nums3: list[int], nums4: list[int]) -> int:
+    def fourSumCount2(nums1: List[int], nums2: List[int], nums3: List[int], nums4: List[int]) -> int:
         from collections import Counter
         countAB = Counter(a + b for a in nums1 for b in nums2)  # Count all sums from nums1 & nums2
 
@@ -31,6 +33,9 @@ class Solution:
 # Link: https://leetcode.com/problems/4sum-ii/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.fourSumCount(nums1 = [1,2], nums2 = [-2,-1], nums3 = [-1,2], nums4 = [0,2]))
-    print(s.fourSumCount(nums1 = [-1,-1], nums2 = [-1,1], nums3 = [-1,1], nums4 = [1,-1]))
-
+    cases = [
+        ([1,2], [-2,-1], [-1,2], [0,2], 2),
+        ([-1,-1], [-1,1], [-1,1], [1,-1], 6),
+    ]
+    for nums1, nums2, nums3, nums4, expected in cases:
+        assert s.fourSumCount(nums1, nums2, nums3, nums4) == expected

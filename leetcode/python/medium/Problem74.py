@@ -1,12 +1,12 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(m+n)
+# 2. What is the space complexity? O(1)
 from typing import List
 
 class Solution:
     def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         m, n = len(matrix), len(matrix[0])
-        i, j = 0, n - 1
+        i, j = 0, n - 1  # start from top right
         while 0 <= i < m and 0 <= j < n:
             if matrix[i][j] == target:
                 return True
@@ -23,10 +23,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3),
-        ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13)
+        ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 3, True),
+        ([[1, 3, 5, 7], [10, 11, 16, 20], [23, 30, 34, 60]], 13, False)
     ]
 
-    for matrix, target in cases:
-        print(s.searchMatrix(matrix, target))
-
+    for matrix, target, expected in cases:
+        assert s.searchMatrix(matrix, target) == expected

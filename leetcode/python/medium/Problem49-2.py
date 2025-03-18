@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def searchAllAnagrams(self, string: str, pattern: str) -> list[int]:
+    def searchAllAnagrams(self, string: str, pattern: str) -> List[int]:
         from collections import Counter
         ans = []
 
@@ -25,4 +27,9 @@ class Solution:
 # Link:
 if __name__ == '__main__':
     s = Solution()
-    print(s.searchAllAnagrams("abcsdacncbaasedf", "abc"))
+    cases = [
+        ("abcsdacncbaasedf", "abc", [0, 8]),
+    ]
+
+    for string, pattern, expected in cases:
+        assert s.searchAllAnagrams(string, pattern) == expected

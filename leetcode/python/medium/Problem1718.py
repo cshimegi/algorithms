@@ -72,9 +72,14 @@ class Solution:
         backtrack(0)
         return ans
 
-
 # Problem 1718
 # Link: https://leetcode.com/problems/construct-the-lexicographically-largest-valid-sequence/description/
 if __name__ == '__main__':
     s = Solution()
-
+    cases = [
+        (3, [3,1,2,3,2]),
+        (5, [5,3,1,4,3,5,2,4,2]),
+    ]
+    for n, expected in cases:
+        assert s.constructDistancedSequence(n) == expected
+        assert s.constructDistancedSequence2(n) == expected

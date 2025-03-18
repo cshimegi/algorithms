@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n^2)
 # 2. What is the space complexity? O(n^2)
+from typing import List
+
 class Solution:
-    def lenLongestFibSubseq(self, arr: list[int]) -> int:
+    def lenLongestFibSubseq(self, arr: List[int]) -> int:
         index = {num: i for i, num in enumerate(arr)}
         n = len(arr)
         ans = 0
@@ -19,16 +21,15 @@ class Solution:
 
         return ans if ans >= 3 else 0
 
-
 # Problem 873
-# Link: https://leetcode.com/problems/minimize-xor/description/
+# Link: https://leetcode.com/problems/length-of-longest-fibonacci-subsequence/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        [1,3,7,11,12,14,18],
-        [1,2,3,4,5,6,7,8],
-        [1,3,5]
+        ([1,3,7,11,12,14,18], 3),
+        ([1,2,3,4,5,6,7,8], 5),
+        ([1,3,5], 0)
     ]
-    for case in cases:
-        print(s.lenLongestFibSubseq(case))
+    for case, expected in cases:
+        assert s.lenLongestFibSubseq(case) == expected
 

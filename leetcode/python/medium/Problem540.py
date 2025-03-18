@@ -9,7 +9,6 @@ class Solution:
 
         while l < r:
             mid = (l + r) // 2
-
             # Since every element appears exactly twice except for one,
             # the starting index of duplicate numbers must be even.
             # Ensure mid is even for proper pairing
@@ -23,16 +22,13 @@ class Solution:
 
         return nums[l]
 
-
 # Problem 540
 # Link: https://leetcode.com/problems/single-element-in-a-sorted-array/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        [1,1,2,3,3,4,4,8,8],
-        [3,3,7,7,10,11,11]
+        ([1,1,2,3,3,4,4,8,8], 2),
+        ([3,3,7,7,10,11,11], 10)
     ]
-
-    for nums in cases:
-        print(s.singleNonDuplicate(nums))
-
+    for nums, expected in cases:
+        assert s.singleNonDuplicate(nums) == expected

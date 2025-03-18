@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(denominator)
+# 2. What is the space complexity? O(denominator)
 class Solution:
     def fractionToDecimal(self, numerator: int, denominator: int) -> str:
         if numerator == 0:
@@ -46,5 +46,10 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
-
+    cases = [
+        (1, 2, "0.5"),
+        (2, 1, "2"),
+        (4, 333, "0.(012)"),
+    ]
+    for numerator, denominator, expected in cases:
+        assert s.fractionToDecimal(numerator, denominator) == expected

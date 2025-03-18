@@ -28,10 +28,10 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ("ecebaa", 2), # 3
-        ("aabacccac", 2), # 6
-        ("aabacccac", 1), # 3
+        ("ecebaa", 2, 3),
+        ("aabacccac", 2, 6),
+        ("aabacccac", 1, 3),
     ]
-    for string, k in cases:
-        print(s.longestSubstringWithKDistinctChars(string, k))
+    for string, k, expected in cases:
+        assert s.longestSubstringWithKDistinctChars(string, k) == expected
 

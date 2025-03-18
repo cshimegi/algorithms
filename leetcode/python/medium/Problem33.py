@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(log n)
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(1)
+from typing import List
+
 class Solution:
-    def search(self, nums: list[int], target: int) -> int:
+    def search(self, nums: List[int], target: int) -> int:
         l, r = 0, len(nums)-1
         while l <= r:
             mid = (r+l)//2
@@ -26,5 +28,9 @@ class Solution:
 # Link: https://leetcode.com/problems/search-in-rotated-sorted-array/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.search(nums = [4,5,6,7,0,1,2], target = 0))
-    print(s.search(nums = [4,5,6,7,0,1,2], target = 3))
+    cases = [
+        ([4,5,6,7,0,1,2], 0, 4),
+        ([4,5,6,7,0,1,2], 3, -1)
+    ]
+    for nums, target, expected in cases:
+        assert s.search(nums, target) == expected

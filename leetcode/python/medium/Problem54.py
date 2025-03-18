@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(m*n)
+# 2. What is the space complexity? O(m*n)
+from typing import List
+
 class Solution:
-    def spiralOrder(self, matrix: list[list[int]]) -> list[int]:
+    def spiralOrder(self, matrix: List[List[int]]) -> List[int]:
         m, n = len(matrix), len(matrix[0])
         ans = []
 
@@ -35,10 +37,12 @@ class Solution:
 
         return ans
 
-
-
 # Problem 54
 # Link: https://leetcode.com/problems/spiral-matrix/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.spiralOrder([[1,2,3],[4,5,6],[7,8,9]]))
+    cases = [
+        ([[1,2,3],[4,5,6],[7,8,9]], [1,2,3,6,9,8,7,4,5]),
+    ]
+    for matrix, expected in cases:
+        assert s.spiralOrder(matrix) == expected

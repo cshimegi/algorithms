@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n*m) where m is the length of the string
+# 2. What is the space complexity? O(1)
 class Solution:
     def countAndSay(self, n: int) -> str:
         ans = "1"
@@ -23,7 +23,11 @@ class Solution:
 # Link: https://leetcode.com/problems/count-and-say/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.countAndSay(1))  # "1"
-    print(s.countAndSay(4))  # "1211"
-    print(s.countAndSay(7))  # "13112221"
-    print(s.countAndSay(10)) # "13211311123113112211"
+    cases = [
+        (1, "1"),
+        (4, "1211"),
+        (7, "13112221"),
+        (10, "13211311123113112211")
+    ]
+    for n, expected in cases:
+        assert s.countAndSay(n) == expected

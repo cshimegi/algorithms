@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n*log(max(nums) - min(nums)))
+# 2. What is the space complexity? O(1)
 from typing import List
 
 class Solution:
@@ -22,7 +22,7 @@ class Solution:
         while left < right:
             mid = (left + right) // 2
             if canStealK(mid): # guess capability
-                right = mid
+                right = mid # because we want min capability
             else:
                 left = mid + 1
 
@@ -34,9 +34,8 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([2, 3, 5, 9], 2),
-        ([2, 7, 9, 3, 1], 2)
+        ([2, 3, 5, 9], 2, 5),
+        ([2, 7, 9, 3, 1], 2, 2)
     ]
-
-    for nums, k in cases:
-        print(s.minCapability(nums, k))
+    for nums, k, expected in cases:
+        assert s.minCapability(nums, k) == expected

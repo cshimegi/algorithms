@@ -19,8 +19,8 @@ class Solution:
     def maxProfit2(self, prices: List[int]) -> int:
         max_profit = 0
         for i in range(1, len(prices)):
-            if prices[i] > prices[i - 1]:
-                max_profit += prices[i] - prices[i - 1]
+            if prices[i] > prices[i-1]:
+                max_profit += prices[i] - prices[i-1]
         return max_profit
 
 
@@ -29,3 +29,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        ([7, 1, 5, 3, 6, 4], 7),
+        ([1, 2, 3, 4, 5], 4),
+        ([7, 6, 4, 3, 1], 0),
+    ]
+    for prices, expected in cases:
+        assert s.maxProfit(prices) == expected
+        assert s.maxProfit2(prices) == expected

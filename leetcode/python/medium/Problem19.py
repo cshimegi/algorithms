@@ -35,8 +35,9 @@ class Solution:
 # Link: https://leetcode.com/problems/remove-nth-node-from-end-of-list/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.removeNthFromEnd(
-        ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))),
-        2,
-    ))
+    cases = [
+        (ListNode(1, ListNode(2, ListNode(3, ListNode(4, ListNode(5))))), 2),
+    ]
+    for head, n in cases:
+        print(s.removeNthFromEnd(head, n))
 

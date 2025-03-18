@@ -1,6 +1,6 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n*log(log(n)))
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(n)
 class Solution:
     def countPrimes(self, n: int) -> int:
         # Sieve of Eratosthenes
@@ -38,4 +38,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    s.countPrimes(100)
+    cases = [
+        (10, 4),
+        (0, 0),
+        (1, 0),
+    ]
+    for n, expected in cases:
+        assert s.countPrimes(n) == expected
+        assert s.countPrimes2(n) == expected

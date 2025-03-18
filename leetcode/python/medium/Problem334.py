@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(1)
+from typing import List
+
 class Solution:
-    def increasingTriplet(self, nums: list[int]) -> bool:
+    def increasingTriplet(self, nums: List[int]) -> bool:
         first = float('inf')  # Smallest value
         second = float('inf')  # Second smallest value
 
@@ -16,7 +18,7 @@ class Solution:
 
         return False
 
-    def increasingTriplet2(self, nums: list[int]) -> list[int] | None:
+    def increasingTriplet2(self, nums: List[int]) -> List[int] | None:
         """
         Return triplet indices
         :param nums:
@@ -45,4 +47,10 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
+    cases = [
+        ([1,2,3,4,5], True),
+        ([5,4,3,2,1], False),
+        ([2,1,5,0,4,6], True),
+    ]
+    for nums, expected in cases:
+        assert s.increasingTriplet(nums) == expected

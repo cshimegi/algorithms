@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(n)
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -8,11 +10,11 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def constructFromPrePost(self, preorder: list[int], postorder: list[int]) -> TreeNode | None:
+    def constructFromPrePost(self, preorder: List[int], postorder: List[int]) -> TreeNode | None:
         post_idx = {val: i for i, val in enumerate(postorder)}  # Map for quick lookup
         pre_idx = 0
 
-        def build(left, right):
+        def build(left: int, right: int) -> TreeNode | None:
             nonlocal pre_idx
             if left > right:
                 return None

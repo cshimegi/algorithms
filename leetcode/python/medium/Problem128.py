@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(n)
+from typing import List 
+
 class Solution:
-    def longestConsecutive(self, nums: list[int]) -> int:
+    def longestConsecutive(self, nums: List[int]) -> int:
         if not nums:
             return 0
 
@@ -29,3 +31,10 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        ([100, 4, 200, 1, 3, 2], 4),
+        ([0, 3, 7, 2, 5, 8, 4, 6, 0, 1], 9),
+        ([1, 0, 1, 2], 3),
+    ]
+    for nums, expected in cases:
+        assert s.longestConsecutive(nums) == expected

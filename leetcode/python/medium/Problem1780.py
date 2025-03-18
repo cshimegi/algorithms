@@ -15,9 +15,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        12,
-        21,
-        91
+        (12, True),
+        (21, False),
+        (91, True),
     ]
-    for case in cases:
-        print(s.checkPowersOfThree(case))
+    for n, expected in cases:
+        assert s.checkPowersOfThree(n) == expected

@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(n)
 class Solution:
     def numSquares(self, n: int) -> int:
         from collections import deque
@@ -40,10 +40,14 @@ class Solution:
 
         return 3
 
-
 # Problem 279
 # Link: https://leetcode.com/problems/perfect-squares/description/
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
+    cases = [
+        (12, 3),
+        (13, 2),
+    ]
+    for n, expected in cases:
+        assert s.numSquares(n) == expected

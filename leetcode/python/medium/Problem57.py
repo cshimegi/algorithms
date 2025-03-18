@@ -1,6 +1,6 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(n)
+# 2. What is the space complexity? O(n)
 from typing import List
 
 class Solution:
@@ -35,27 +35,26 @@ class Solution:
         n = len(intervals)
         start, end = newInterval
 
-        startIdx = bisect_left(intervals, start, key=lambda x: x[1])
-        if startIdx < n and intervals[startIdx][0] < start:
-            start = intervals[startIdx][0]
+        # Compare the start of newInterval with the end of existing intervals
+        start_idx = bisect_left(intervals, start, key=lambda x: x[1])
+        if start_idx < n and intervals[start_idx][0] < start:
+            start = intervals[start_idx][0]
 
-        endIdx = bisect_right(intervals, end, key=lambda x: x[0], lo=startIdx)
-        if 0 < endIdx <= n and intervals[endIdx - 1][1] > end:
-            end = intervals[endIdx - 1][1]
+        # Compare the end of newInterval with the start of existing intervals
+        end_idx = bisect_right(intervals, end, key=lambda x: x[0], lo=start_idx)
+        if start_idx < end_idx <= n and intervals[end_idx - 1][1] > end:
+            end = intervals[end_idx - 1][1]
 
-        return intervals[:startIdx] + [[start, end]] + intervals[endIdx:]
-
-
-
+        return intervals[:start_idx] + [[start, end]] + intervals[end_idx:]
 
 # Problem 57
 # Link: https://leetcode.com/problems/insert-interval/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([[1, 3], [6, 9]], [2, 5]),
-        ([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8]),
+        ([[1, 3], [6, 9]], [2, 5], [[1, 5], [6, 9]]),
+        ([[1, 2], [3, 5], [6, 7], [8, 10], [12, 16]], [4, 8], [[1, 2], [3, 10], [12, 16]]),
     ]
-    for intervals, newInterval in cases:
-        print(s.insert(intervals, newInterval))
+    for intervals, newInterval, expected in cases:
+        assert s.insert(intervals, newInterval) == expected
 

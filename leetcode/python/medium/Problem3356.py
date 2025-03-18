@@ -31,17 +31,14 @@ class Solution:
                 l = m + 1
         return l
 
-
 # Problem 3356
 # Link: https://leetcode.com/problems/zero-array-transformation-ii/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([2, 0, 2], [[0, 2, 1], [0, 2, 1], [1, 1, 3]]),
-        ([4, 3, 2, 1], [[1, 3, 2], [0, 2, 1]]),
-        ([5], [[0, 0, 5], [0, 0, 1], [0, 0, 3], [0, 0, 2]])
+        ([2, 0, 2], [[0, 2, 1], [0, 2, 1], [1, 1, 3]], 2),
+        ([4, 3, 2, 1], [[1, 3, 2], [0, 2, 1]], -1),
+        ([5], [[0, 0, 5], [0, 0, 1], [0, 0, 3], [0, 0, 2]], 1),
     ]
-
-    for nums, queries in cases:
-        print(s.minZeroArray(nums, queries))
-
+    for nums, queries, expected in cases:
+        assert s.minZeroArray(nums, queries) == expected

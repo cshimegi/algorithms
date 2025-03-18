@@ -1,3 +1,6 @@
+# Questions to ask:
+# 1. What is the time complexity?
+# 2. What is the space complexity?
 class Solution:
     def xorAllNums(self, nums1: list[int], nums2: list[int]) -> int:
         l1, l2 = len(nums1), len(nums2)

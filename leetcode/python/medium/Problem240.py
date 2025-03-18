@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def searchMatrix(self, matrix: list[list[int]], target: int) -> bool:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
         # O(m*n) Time | O(1) Space
         m, n = len(matrix), len(matrix[0])
 
@@ -27,7 +29,7 @@ class Solution:
                     return True
         return False
 
-    def searchMatrix2(self, matrix: list[list[int]], target: int) -> bool:
+    def searchMatrix2(self, matrix: List[List[int]], target: int) -> bool:
         # O(m + n) Time | O(1) Space
         if not matrix or not matrix[0]:
             return False
@@ -50,4 +52,23 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
+    cases = [
+        (
+            [
+                [1, 4, 7, 11, 15],
+                [2, 5, 8, 12, 19],
+                [3, 6, 9, 16, 22],
+                [10, 13, 14, 17, 24],
+                [18, 21, 23, 26, 30]
+            ], 5, True),
+        (
+            [
+                [1, 4, 7, 11, 15],
+                [2, 5, 8, 12, 19],
+                [3, 6, 9, 16, 22],
+                [10, 13, 14, 17, 24],
+                [18, 21, 23, 26, 30]
+            ], 20, False),
+    ]
+    for matrix, target, expected in cases:
+        assert s.searchMatrix2(matrix, target) == expected

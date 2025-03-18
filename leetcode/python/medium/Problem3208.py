@@ -49,12 +49,11 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        ([0, 1, 0, 1, 0], 3),
-        ([0, 1, 0, 0, 1, 0, 1], 6),
-        ([1, 1, 0, 1], 4),
-        ([1, 1, 1, 1], 3),
-        ([0, 1, 0, 1, 0, 1, 0, 1, 0, 1], 4),
+        ([0, 1, 0, 1, 0], 3, 3),
+        ([0, 1, 0, 0, 1, 0, 1], 6, 2),
+        ([1, 1, 0, 1], 4, 0),
+        ([1, 1, 1, 1], 3, 0),
+        ([0, 1, 0, 1, 0, 1, 0, 1, 0, 1], 4, 10),
     ]
-    for colors, k in cases:
-        print(s.numberOfAlternatingGroups(colors, k))
-
+    for colors, k, expected in cases:
+        assert s.numberOfAlternatingGroups(colors, k) == expected

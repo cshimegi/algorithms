@@ -1,10 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(log n)
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(1)
 from typing import List
 
 class Solution:
-    def findPeakElement(self, nums: list[int]) -> int:
+    def findPeakElement(self, nums: List[int]) -> int:
         # O(log n)
         left, right = 0, len(nums) - 1
         while left < right:
@@ -33,7 +33,7 @@ class Solution:
 
         return left
 
-    def findPeakElement3(self, nums: list[int]) -> int:
+    def findPeakElement3(self, nums: List[int]) -> int:
         # O(n)
         l = len(nums)
 
@@ -57,5 +57,10 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-
-
+    cases = [
+        ([1,2,3,1], 2),
+        ([1,2,1,3,5,6,4], 5),
+        ([1,2,3,4,5,6,7,8,9], 8)
+    ]
+    for nums, expected in cases:
+        assert s.findPeakElement(nums) == expected

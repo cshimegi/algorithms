@@ -17,5 +17,9 @@ class Solution:
 # Link: https://leetcode.com/problems/powx-n/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.myPow(2.0, 10))
-    print(s.myPow(2.0, -2))
+    cases = [
+        (2.0, 10, 1024.0),
+        (2.0, -2, 0.25)
+    ]
+    for x, n, expected in cases:
+        assert s.myPow(x, n) == expected

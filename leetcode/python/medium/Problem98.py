@@ -29,4 +29,8 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.isValidBST(TreeNode(1, TreeNode(2), TreeNode(3))))
+    cases = [
+        TreeNode(1, TreeNode(2), TreeNode(3)),
+    ]
+    for root in cases:
+        print(s.isValidBST(root))

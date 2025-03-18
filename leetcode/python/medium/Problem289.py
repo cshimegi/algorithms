@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(m*n)
+# 2. What is the space complexity? O(1)
+from typing import List
+
 class Solution:
-    def gameOfLife(self, board: list[list[int]]) -> None:
+    def gameOfLife(self, board: List[List[int]]) -> None:
         """
         Do not return anything, modify board in-place instead.
         """
@@ -36,13 +38,14 @@ class Solution:
                 elif board[r][c] == 2:
                     board[r][c] = 1
 
-
 # Problem 289
 # Link: https://leetcode.com/problems/game-of-life/description/
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    board1 = [[0,1,0],[0,0,1],[1,1,1],[0,0,0]]
-    s.gameOfLife(board1)
-    print(board1)
-
+    cases = [
+        [[0,1,0],[0,0,1],[1,1,1],[0,0,0]],
+    ]
+    for board in cases:
+        s.gameOfLife(board)
+        print(board)

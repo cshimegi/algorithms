@@ -20,8 +20,6 @@ class Solution:
 
         return left if left else right
 
-
-
 # Problem 236
 # Link: https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-tree/description/
 # Tips:

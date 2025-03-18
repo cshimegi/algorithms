@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class TreeNode:
     def __init__(self, val=0, left=None, right=None):
         self.val = val
@@ -8,7 +10,7 @@ class TreeNode:
         self.right = right
 
 class Solution:
-    def bfs(self, node: TreeNode | None, level: int, direction: int, res: list[list[int]]):
+    def bfs(self, node: TreeNode | None, level: int, direction: int, res: List[List[int]]):
         if node is None:
             return
 
@@ -27,12 +29,12 @@ class Solution:
         if node.right:
             self.bfs(node.right, level+1, direction, res)
 
-    def zigzagLevelOrder(self, root: TreeNode | None) -> list[list[int]]:
+    def zigzagLevelOrder(self, root: TreeNode | None) -> List[List[int]]:
         ans = []
         self.bfs(root, 0, 0, ans)
         return ans
 
-    def zigzagLevelOrder2(self, root: TreeNode | None) -> list[list[int]]:
+    def zigzagLevelOrder2(self, root: TreeNode | None) -> List[List[int]]:
         if not root:
             return []
 

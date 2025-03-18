@@ -23,4 +23,8 @@ class Solution:
 # Link: https://leetcode.com/problems/generate-parentheses/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.generateParenthesis(3))
+    cases = [
+        (3, ["((()))", "(()())", "(())()", "()(())", "()()()"]),
+    ]
+    for n, expected in cases:
+        assert s.generateParenthesis(n) == expected

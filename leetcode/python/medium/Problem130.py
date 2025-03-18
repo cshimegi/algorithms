@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(m*n)
-# 2. What is the space complexity?
+# 2. What is the space complexity? O(m*n)
+from typing import List
+
 class Solution:
-    def solve(self, board: list[list[str]]) -> None:
+    def solve(self, board: List[List[str]]) -> None:
         """
         Do not return anything, modify board in-place instead.
         """
@@ -45,3 +47,13 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
+    cases = [
+        (
+            [["X", "X", "X", "X"], ["X", "O", "O", "X"], ["X", "X", "O", "X"], ["X", "O", "X", "X"]],
+            [["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "X", "X", "X"], ["X", "O", "X", "X"]]
+        ),
+        ([["X"]], [["X"]])
+    ]
+    for board, expected in cases:
+        s.solve(board)
+        assert board == expected

@@ -6,6 +6,7 @@ class Solution:
         """
         Do not return anything, modify matrix in-place instead.
         """
+        # O(m*n) Time | O(m+n) Space
         m, n = len(matrix), len(matrix[0])
         rows = [0]*m
         cols = [0]*n
@@ -25,6 +26,7 @@ class Solution:
         Optimized Space Complexity O(1)
         Do not return anything, modify matrix in-place instead.
         """
+        # O(m*n) Time | O(1) Space
         m, n = len(matrix), len(matrix[0])
         first_row_zero = any(matrix[0][j] == 0 for j in range(n))
         first_col_zero = any(matrix[i][0] == 0 for i in range(m))
@@ -61,4 +63,9 @@ class Solution:
 # Link: https://leetcode.com/problems/set-matrix-zeroes/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.setZeroes([[1,2,3], [1,0,1], [2,3,0]]))
+    cases = [
+        [[1, 2, 3], [1, 0, 1], [2, 3, 0]],
+    ]
+    for matrix in cases:
+        s.setZeroes(matrix)
+        print(matrix)

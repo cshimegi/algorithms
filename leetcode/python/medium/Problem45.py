@@ -2,8 +2,10 @@
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(1)
 # Return the minimum number of jumps to reach nums[n - 1]
+from typing import List
+
 class Solution:
-    def jump(self, nums: list[int]) -> int:
+    def jump(self, nums: List[int]) -> int:
         n = len(nums)
         if n == 1:
             return 0  # Already at last index, no jumps needed
@@ -30,9 +32,9 @@ class Solution:
 if __name__ == '__main__':
     s = Solution()
     cases = [
-        [2,3,1,1,4],
-        [2,3,0,1,4]
+        ([2,3,1,1,4], 2),
+        ([2,3,0,1,4], 2)
     ]
 
-    for case in cases:
-        print(s.jump(case))
+    for nums, expected in cases:
+        assert s.jump(nums) == expected

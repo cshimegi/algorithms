@@ -25,8 +25,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.getSum(4,19))
-    print(s.getSum(2,3))
-    print(s.getSum(-3, 20))
-    print(s.getSum(-10,-9))
-
+    cases = [
+        (4, 19, 23),
+        (2, 3, 5),
+        (-3, 20, 17),
+        (-10, -9, -19),
+    ]
+    for a, b, expected in cases:
+        assert s.getSum(a, b) == expected

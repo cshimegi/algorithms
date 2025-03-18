@@ -1,8 +1,10 @@
 # Questions to ask:
-# 1. What is the time complexity?
-# 2. What is the space complexity?
+# 1. What is the time complexity? O(W * 4^L)
+# 2. What is the space complexity? O(m * n)
+from typing import List
+
 class Solution:
-    def exist(self, board: list[list[str]], word: str) -> bool:
+    def exist(self, board: List[List[str]], word: str) -> bool:
         m, n, lw = len(board), len(board[0]), len(word)
 
         # Check if the word is possible given the board
@@ -43,10 +45,13 @@ class Solution:
 
         return False
 
-
 # Problem 79
 # Link: https://leetcode.com/problems/word-search/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED"))
-    print(s.exist([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]],"SEE"))
+    cases = [
+        ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "ABCCED", True),
+        ([["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], "SEE", True),
+    ]
+    for board, word, expected in cases:
+        assert s.exist(board, word) == expected

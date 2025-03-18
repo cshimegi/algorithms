@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def groupAnagrams(self, strs: list[str]) -> list[list[str]]:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         # O(n * m * log(m))
         ans = {}
         for s in strs:
@@ -10,7 +12,7 @@ class Solution:
             ans[key] = ans.get(key, []) + [s]
         return [v for v in ans.values()]
 
-    def groupAnagrams2(strs: list[str]) -> list[list[str]]:
+    def groupAnagrams2(self, strs: List[str]) -> List[List[str]]:
         # O(n * m)
         from collections import defaultdict
 
@@ -33,4 +35,8 @@ class Solution:
 # Link: https://leetcode.com/problems/group-anagrams/description/
 if __name__ == '__main__':
     s = Solution()
-    print(s.groupAnagrams(strs = ["eat","tea","tan","ate","nat","bat"]))
+    cases = [
+        (["eat","tea","tan","ate","nat","bat"], [["bat"],["nat","tan"],["ate","eat","tea"]]),
+    ]
+    for strs, expected in cases:
+        assert s.groupAnagrams(strs) == expected

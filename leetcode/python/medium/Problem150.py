@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def evalRPN(self, tokens: list[str]) -> int:
+    def evalRPN(self, tokens: List[str]) -> int:
         stack = []
         for t in tokens:
             if t in ("+", "-", "*", "/"):
@@ -27,5 +29,9 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.evalRPN(["10","6","9","3","+","-11","*","/","*","17","+","5","+"]))
-    print(s.evalRPN(["4","13","5","/","+"]))
+    cases = [
+        (["10","6","9","3","+","-11","*","/","*","17","+","5","+"], 22),
+        (["4","13","5","/","+"], 6),
+    ]
+    for tokens, expected in cases:
+        assert s.evalRPN(tokens) == expected

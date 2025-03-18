@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity? < O(n^2)
+from typing import List
+
 class Solution:
-    def kthSmallest(self, matrix: list[list[int]], k: int) -> int:
+    def kthSmallest(self, matrix: List[List[int]], k: int) -> int:
         # Time: O(n^2)
         # Space: O(n^2)
         n = len(matrix)
@@ -21,7 +23,7 @@ class Solution:
             i += 1
         return a[k-1]
 
-    def kthSmallest_minHeap(self, matrix: list[list[int]], k: int) -> int:
+    def kthSmallest_minHeap(self, matrix: List[List[int]], k: int) -> int:
         # Time: O(k*log(n))
         # Space: O(n)
         import heapq
@@ -38,7 +40,7 @@ class Solution:
         return heapq.heappop(min_heap)[0]  # kth smallest element
 
 
-    def kthSmallest_binarySearch(self, matrix: list[list[int]], k: int) -> int:
+    def kthSmallest_binarySearch(self, matrix: List[List[int]], k: int) -> int:
         # Time: O(n*log(max-min))
         # Space: O(1)
         # row-wise binary search
@@ -69,5 +71,11 @@ class Solution:
 # Tips:
 if __name__ == '__main__':
     s = Solution()
-    print(s.kthSmallest([[1,5,9],[10,11,13],[12,13,15]], 8))
-    print(s.kthSmallest([[1,3,5],[6,7,12],[11,14,14]], 6))
+    cases = [
+        ([[1,5,9],[10,11,13],[12,13,15]], 8, 13),
+        ([[1,3,5],[6,7,12],[11,14,14]], 6, 11),
+    ]
+    for matrix, k, expected in cases:
+        assert s.kthSmallest(matrix, k) == expected
+        assert s.kthSmallest_minHeap(matrix, k) == expected
+        assert s.kthSmallest_binarySearch(matrix, k) == expected
