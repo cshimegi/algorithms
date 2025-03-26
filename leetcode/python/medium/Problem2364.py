@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
     def countBadPairs(self, nums: List[int]) -> int:
         # Count nums[i] - i because nums[i] - i != nums[j] - j

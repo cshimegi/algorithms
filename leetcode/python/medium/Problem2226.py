@@ -28,6 +28,31 @@ class Solution:
                 r = mid - 1
         return l
 
+    def maximumCandies2(self, candies: List[int], k: int) -> int:
+        def check(get_candies: int) -> bool:
+            num_of_children = k
+            for candy in candies:
+                num_of_children -= candy // get_candies
+                if num_of_children <= 0:
+                    return True
+            return False
+
+        total_candies = sum(candies)
+        if total_candies < k:
+            return 0
+
+        l, r = 1, total_candies // k
+        while l < r:
+            mid = (l + r) // 2
+            if check(mid):
+                l = mid + 1
+            else:
+                r = mid
+        if check(l):
+            return l
+        else:
+            return l - 1
+
 # Problem 2226
 # Link: https://leetcode.com/problems/maximum-candies-allocated-to-k-children/description/
 if __name__ == '__main__':

@@ -14,7 +14,8 @@ class Solution:
             if content[0].isdigit():
                 digit_logs.append(log)
             else:
-                letter_logs.append((content, identifier))  # Store content first for sorting
+                # Tie-breaking: Store content first for sorting
+                letter_logs.append((content, identifier))
 
         # Sort letter logs by (content, identifier) O(m*log(m))
         letter_logs.sort()

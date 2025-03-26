@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(1)
+from typing import List
+
 class Solution:
-    def maxArea(self, height: list[int]) -> int:
+    def maxArea(self, height: List[int]) -> int:
         l, r, ans = 0, len(height)-1, 0
         while l < r:
             ans = max(ans, (r-l)*min(height[l], height[r]))

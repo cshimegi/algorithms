@@ -74,6 +74,7 @@ if __name__ == '__main__':
     cases = [
         ([[1,5,9],[10,11,13],[12,13,15]], 8, 13),
         ([[1,3,5],[6,7,12],[11,14,14]], 6, 11),
+        ([[1, 5, 9], [10, 11, 13], [12, 13, 15]], 3, 9),
     ]
     for matrix, k, expected in cases:
         assert s.kthSmallest(matrix, k) == expected

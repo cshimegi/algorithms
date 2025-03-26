@@ -1,8 +1,10 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+from typing import List
+
 class Solution:
-    def setZeroes(self, matrix: list[list[int]]) -> None:
+    def setZeroes(self, matrix: List[List[int]]) -> None:
         """
         Do not return anything, modify matrix in-place instead.
         """
@@ -21,7 +23,7 @@ class Solution:
                 if cols[j] == 1 or rows[i] == 1:
                     matrix[i][j] = 0
 
-    def setZeroes2(self, matrix: list[list[int]]) -> None:
+    def setZeroes2(self, matrix: List[List[int]]) -> None:
         """
         Optimized Space Complexity O(1)
         Do not return anything, modify matrix in-place instead.

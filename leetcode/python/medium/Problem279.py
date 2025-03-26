@@ -1,6 +1,8 @@
 # Questions to ask:
 # 1. What is the time complexity? O(n)
 # 2. What is the space complexity? O(n)
+import math
+
 class Solution:
     def numSquares(self, n: int) -> int:
         from collections import deque
@@ -30,7 +32,7 @@ class Solution:
         if n % 8 == 7:
             return 4
 
-        squares = [i*i for i in range(1, int(sqrt(n))+1)]
+        squares = [i*i for i in range(1, int(math.sqrt(n))+1)]
         if n in squares:
             return 1
 

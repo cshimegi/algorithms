@@ -78,7 +78,7 @@ class Solution:
 
 
 # Problem 3208
-# Link: https://leetcode.com/problems/alternating-groups-ii/description/
+# Link: https://leetcode.com/problems/count-of-substrings-containing-every-vowel-and-k-consonants-ii/description/
 if __name__ == '__main__':
     s = Solution()
     cases = [
