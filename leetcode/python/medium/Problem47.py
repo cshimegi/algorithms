@@ -2,6 +2,7 @@
 # 1. What is the time complexity?
 # 2. What is the space complexity?
 from typing import List
+from collections import Counter
 
 class Solution:
     def permuteUnique(self, nums: List[int]) -> List[List[int]]:
@@ -52,6 +53,30 @@ class Solution:
         backtrack([])
         return ans
 
+    def permuteUnique3(self, nums: List[int]) -> List[List[int]]:
+        # O(n!)/O(n!) - Most intuitive and efficient for many duplicates
+        # Uses Counter to track available numbers - no complex used[] logic needed
+        ans = []
+        counter = Counter(nums)
+        l = len(nums)
+
+        def backtrack(path: List[int]):
+            if len(path) == l:
+                ans.append(path[:])
+                return
+
+            # Only iterate through unique values, not all indices!
+            for num in counter:
+                if counter[num] > 0:
+                    counter[num] -= 1
+                    path.append(num)
+                    backtrack(path)
+                    path.pop()
+                    counter[num] += 1
+
+        backtrack([])
+        return ans
+
 
 # Problem 47
 # Link: https://leetcode.com/problems/permutations-ii/description/
@@ -65,3 +90,4 @@ if __name__ == '__main__':
     for nums, expected in cases:
         assert s.permuteUnique(nums) == expected
         assert s.permuteUnique2(nums) == expected
+        assert s.permuteUnique3(nums) == expected

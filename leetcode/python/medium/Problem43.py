@@ -13,7 +13,7 @@ class Solution:
             for j in range(n - 1, -1, -1):
                 """
                 0 0 0 0 0 0 0  0    0
-                          <-- pos1 pos2
+                          <-- pos2 pos1
                 """
                 mul = int(num1[i]) * int(num2[j])
                 pos1, pos2 = i + j + 1, i + j

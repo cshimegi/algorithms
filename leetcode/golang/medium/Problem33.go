@@ -21,7 +21,6 @@ func search(nums []int, target int) int {
 				low = mid + 1
 			}
 		} else {
-			// Large numbers are on left side
 			if nums[mid] < target && target <= nums[high] {
 				low = mid + 1
 			} else {

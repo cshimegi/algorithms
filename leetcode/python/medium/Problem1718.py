@@ -1,8 +1,49 @@
 # Questions to ask:
 # 1. What is the time complexity?
 # 2. What is the space complexity?
+
+# COMPLEXITY ANALYSIS:
+# 
+# Both implementations use backtracking to solve the problem.
+# The key difference is the order of trying numbers:
+# - constructDistancedSequence: tries numbers from n down to 1 (largest first)
+# - constructDistancedSequence2: tries numbers from 1 to n (smallest first)
+#
+# TIME COMPLEXITY: O(n! * n)
+# 
+# Detailed Analysis:
+# 1. Problem Structure:
+#    - We need to place numbers 1 to n in a sequence of length 2n-1
+#    - Number 1 appears once, numbers 2 to n appear twice each
+#    - For number k (k > 1), if placed at position i, it must also be at position i+k
+#
+# 2. Backtracking Process:
+#    - At each step, we try to place a number at the current position
+#    - We have n choices for which number to place
+#    - Each choice may place 1 or 2 numbers in the sequence
+#    - We backtrack if a choice leads to an invalid state
+#
+# 3. Complexity Calculation:
+#    - Number of recursive calls: In worst case, we explore all valid permutations
+#    - For n numbers with constraints, this is approximately O(n!)
+#    - At each recursive call, we do O(n) work (checking all numbers)
+#    - Total: O(n! * n)
+#
+# 4. Practical Performance:
+#    - The actual runtime is often much better due to early pruning
+#    - Invalid placements are detected quickly, reducing the search space
+#    - Both implementations have the same worst-case complexity
+#
+# SPACE COMPLEXITY: O(n)
+# - ans array: O(2n-1) = O(n)
+# - used array: O(n+1) = O(n)
+# - Recursion stack depth: O(n) in the worst case
+# - Total: O(n)
 class Solution:
     def constructDistancedSequence(self, n: int) -> list[int]:
+        # Implementation 1: Tries largest numbers first
+        # This tends to find the lexicographically LARGEST valid sequence
+        # Time: O(n! * n), Space: O(n)
         ans = [0] * (n*2-1)
         used = [False] * (n+1)
 
@@ -37,7 +78,9 @@ class Solution:
         return ans
 
     def constructDistancedSequence2(self, n: int) -> list[int]:
-        # Return the smallest possible sequence
+        # Implementation 2: Tries smallest numbers first
+        # This tends to find the lexicographically SMALLEST valid sequence
+        # Time: O(n! * n), Space: O(n)
         ans = [0] * (n * 2 - 1)
         used = [False] * (n + 1)
 

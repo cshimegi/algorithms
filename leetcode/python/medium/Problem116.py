@@ -49,20 +49,42 @@ class Solution:
         return root
 
     def connect3(self, root: Optional[Node]) -> Optional[Node]:
-        # Time: O(n)/Space: O(1)
+        """
+        How It Works:
+        Outer loop: Iterates through each level using leftmost_node
+        Inner loop: Traverses horizontally across the current level using current
+        Key insight: Uses the already-connected next pointers to traverse 
+            horizontally, achieving O(1) space complexity without a queue
+            The code is now much easier to understand while maintaining the 
+            same O(n) time and O(1) space
+        """
+        # Time: O(n) / Space: O(1)
+        # Uses the tree structure itself to traverse levels without a queue
         if not root:
             return root
 
-        left_node = root
-        while left_node.left:
-            head = left_node
-            # BFS
-            while head:
-                head.left.next = head.right
-                if head.next:
-                    head.right.next = head.next.left
-                head = head.next # --> move to next node at the same level
-            left_node = left_node.left
+        # Start from the root and process level by level
+        leftmost_node = root
+        
+        # Continue until we reach the last level (no more children)
+        while leftmost_node.left:
+            # Traverse the current level horizontally
+            current = leftmost_node
+            
+            while current:
+                # Connect left child to right child
+                current.left.next = current.right
+                
+                # Connect right child to the next node's left child (if exists)
+                if current.next:
+                    current.right.next = current.next.left
+                
+                # Move to the next node in the same level
+                current = current.next
+            
+            # Move down to the next level (go to leftmost node)
+            leftmost_node = leftmost_node.left
+        
         return root
 
 

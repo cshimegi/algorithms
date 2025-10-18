@@ -49,7 +49,7 @@ class Solution:
     [5]
     """
     def change2(self, amount: int, coins: List[int]) -> int:
-        # O(n^2)/O(n)
+        # O(n*amount)/O(amount)
         dp = [0] * (amount + 1) # DP table for the number of ways to make up each amount
         dp[0] = 1 # Base case: amount 0 is also 1 way
 
@@ -60,7 +60,7 @@ class Solution:
         return dp[amount]
 
     def change3(self, amount: int, coins: List[int]) -> int:
-        # O(n*amount)/O(amount)
+        # O(n*amount)/O(n*amount)
         l = len(coins)
         memo = {}
 

@@ -16,7 +16,7 @@ class Solution:
 
         for i in range(1, len(string) - l_pattern + 1):
             window_counter[string[i-1]] -= 1
-            window_counter[string[i+l_pattern-1]] += 1
+            window_counter[string[i-1+l_pattern]] += 1
             if pattern_counter == window_counter:
                 ans.append(i)
 

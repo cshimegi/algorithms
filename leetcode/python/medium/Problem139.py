@@ -25,15 +25,30 @@ class Solution:
         return self.dfs(s, memo, wordMap)
 
     def wordBreak2(self, s: str, wordDict: List[str]) -> bool:
-        # DP Time:O(n)/Space:O(n)
+        # DP (Backward) Time:O(n*max_len)/Space:O(n)
         n = len(s)
         dp = [False] * (n+1)
         dp[0] = True # empty string can always be segmented
         max_len = max(map(len, wordDict))
 
         for i in range(1, n+1):
-            # Backward
+            # Backward: checks longer words first
             for j in range(i-1, max(i-max_len-1, -1), -1): # consider only the length of word <= max_len
+                if dp[j] and s[j:i] in wordDict:
+                    dp[i] = True # Mark the position of last character of found word true
+                    break
+        return dp[n]
+
+    def wordBreak3(self, s: str, wordDict: List[str]) -> bool:
+        # DP (Forward) Time:O(n*max_len)/Space:O(n)
+        n = len(s)
+        dp = [False] * (n+1)
+        dp[0] = True # empty string can always be segmented
+        max_len = max(map(len, wordDict))
+
+        for i in range(1, n+1):
+            # Forward: checks shorter words first
+            for j in range(max(0, i-max_len), i): # consider only the length of word <= max_len
                 if dp[j] and s[j:i] in wordDict:
                     dp[i] = True # Mark the position of last character of found word true
                     break
@@ -53,3 +68,4 @@ if __name__ == '__main__':
     for string, wordDict, expected in cases:
         assert s.wordBreak(string, wordDict) == expected
         assert s.wordBreak2(string, wordDict) == expected
+        assert s.wordBreak3(string, wordDict) == expected
