@@ -3,36 +3,22 @@ package main
 import "fmt"
 
 func binarySearch(nums []int, target int, findLowest bool) int {
-	l := len(nums)
-	if l == 0 {
-		return -1
-	}
+	ans, l, r := -1, 0, len(nums)-1
 
-	low := 0
-	high := l - 1
-	ans := -1
-	for low <= high {
-		mid := low + (high-low)/2
+	for l <= r {
+		mid := (l + r) / 2
 		if nums[mid] == target {
-			if ans == -1 {
-				ans = mid
+			ans = mid
+
+			if findLowest {
+				r = mid - 1
 			} else {
-				if findLowest {
-					if mid < ans {
-						ans = mid
-					}
-					high = mid - 1
-				} else {
-					if mid > ans {
-						ans = mid
-					}
-					low = mid + 1
-				}
+				l = mid + 1
 			}
-		} else if nums[mid] < target {
-			low = mid + 1
+		} else if nums[mid] > target {
+			r = mid - 1
 		} else {
-			high = mid - 1
+			l = mid + 1
 		}
 	}
 
@@ -40,13 +26,10 @@ func binarySearch(nums []int, target int, findLowest bool) int {
 }
 
 func searchRange(nums []int, target int) []int {
-	if len(nums) == 0 {
-		return []int{-1, -1}
-	}
-	ranges := []int{-1, -1}
-	ranges[0] = binarySearch(nums, target, true)
-	ranges[1] = binarySearch(nums, target, false)
-	return ranges
+	a := binarySearch(nums, target, true)
+	b := binarySearch(nums, target, false)
+
+	return []int{a, b}
 }
 
 // Leetcode 34
